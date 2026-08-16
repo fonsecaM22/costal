@@ -1,0 +1,132 @@
+{
+  "weeks": {
+    "2026-08-16": [
+      {
+        "dow": "SUN",
+        "date": 16,
+        "mon": "AUG",
+        "name": "Santa Monica Pier",
+        "address": "200 Santa Monica Pier, Santa Monica, CA",
+        "hours": "10:00 AM – 8:00 PM",
+        "note": "Sunset service with live acoustic set"
+      },
+      {
+        "dow": "MON",
+        "date": 17,
+        "mon": "AUG",
+        "name": "Malibu Bluffs Park",
+        "address": "24250 Pacific Coast Hwy, Malibu, CA",
+        "hours": "9:00 AM – 4:00 PM",
+        "note": "Quiet weekday service, dog-friendly patio nearby"
+      },
+      {
+        "dow": "TUE",
+        "date": 18,
+        "mon": "AUG",
+        "name": "Venice Beach Boardwalk",
+        "address": "1800 Ocean Front Walk, Venice, CA",
+        "hours": "10:00 AM – 7:00 PM",
+        "note": "Parked near the skate park, expect a line at lunch"
+      },
+      {
+        "dow": "WED",
+        "date": 19,
+        "mon": "AUG",
+        "name": "Manhattan Beach Pier",
+        "address": "101 Manhattan Beach Blvd, Manhattan Beach, CA",
+        "hours": "9:00 AM – 5:00 PM",
+        "note": "Farmers market day — extra parking two blocks east"
+      },
+      {
+        "dow": "THU",
+        "date": 20,
+        "mon": "AUG",
+        "name": "Redondo Beach Marina",
+        "address": "181 N Harbor Dr, Redondo Beach, CA",
+        "hours": "10:00 AM – 6:00 PM",
+        "note": "Waterfront seating, sunset over the boats"
+      },
+      {
+        "dow": "FRI",
+        "date": 21,
+        "mon": "AUG",
+        "name": "Hermosa Beach Pier",
+        "address": "1 Pier Ave, Hermosa Beach, CA",
+        "hours": "11:00 AM – 9:00 PM",
+        "note": "Late night — after-hours crepes under string lights"
+      },
+      {
+       "dow": "SAT",
+       "date": 22,
+       "mon": "AUG",
+       "closed": true
+      }
+    ],
+
+    "2026-08-23": [
+      {
+        "dow": "SUN",
+        "date": 23,
+        "mon": "AUG",
+        "name": "Downtown Santa Monica",
+        "address": "1324 3rd Street Promenade, Santa Monica, CA",
+        "hours": "10:00 AM – 6:00 PM",
+        "note": "Sunday afternoon service"
+      },
+      {
+        "dow": "MON",
+        "date": 24,
+        "mon": "AUG",
+        "name": "Malibu Country Mart",
+        "address": "3835 Cross Creek Rd, Malibu, CA",
+        "hours": "9:00 AM – 4:00 PM",
+        "note": "Morning crepes by the coast"
+      },
+      {
+        "dow": "TUE",
+        "date": 25,
+        "mon": "AUG",
+        "name": "Marina del Rey",
+        "address": "13701 Fiji Way, Marina del Rey, CA",
+        "hours": "10:00 AM – 7:00 PM",
+        "note": "Waterfront service"
+      },
+      {
+        "dow": "WED",
+        "date": 26,
+        "mon": "AUG",
+        "name": "Venice Beach",
+        "address": "1800 Ocean Front Walk, Venice, CA",
+        "hours": "10:00 AM – 7:00 PM",
+        "note": "Lunch rush expected"
+      },
+      {
+        "dow": "THU",
+        "date": 27,
+        "mon": "AUG",
+        "name": "Manhattan Beach",
+        "address": "Manhattan Beach Blvd, Manhattan Beach, CA",
+        "hours": "9:00 AM – 5:00 PM",
+        "note": "Beachside service"
+      },
+      {
+        "dow": "FRI",
+        "date": 28,
+        "mon": "AUG",
+        "name": "Hermosa Beach",
+        "address": "1 Pier Ave, Hermosa Beach, CA",
+        "hours": "11:00 AM – 9:00 PM",
+        "note": "Friday night crepes"
+      },
+      {
+        "dow": "SAT",
+        "date": 29,
+        "mon": "AUG",
+        "name": "Redondo Beach",
+        "address": "181 N Harbor Dr, Redondo Beach, CA",
+        "hours": "10:00 AM – 8:00 PM",
+        "note": "Weekend waterfront service"
+      }
+    ]
+  }
+}

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coastal Créperie — Crepes made where the tide turns.</title>
+<script src="https://kit.fontawesome.com/293aa5b3ae.js" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <figure class="logo">
+      <img src="assets/logo.png" alt="">
+    </figure>
+    Coastal Créperie
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#">Today</a></li>
+      <li><a href="#schedule">Schedule</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#story">Our Story</a></li>
+    </ul>
+  </nav>
+  <button class="find-us-btn" id="findUsBtn">Find Us</button>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">Hand-spun · Seaside · Since 2019</div>
+    <h1 class="title">Crepes made</h1>
+      <h1 class="title">where the tide turns.</h1>
+    <p class="main__para">A wandering créperie serving delicate crepes, ceremonial matcha, pressed lemonade and slow coffee along the California coast.</p>
+
+    <div class="today-card">
+      <div class="eyebrow"><span class="dot"></span> Casting Anchor Today</div>
+      <h3 id="todayStopName">Santa Monica Pier</h3>
+      <div class="today-meta">
+        <span>
+          <i class="fa-solid fa-location-dot"></i>
+          <span id="todayAddress">200 Santa Monica Pier, Santa Monica, CA</span>
+        </span>
+        <span>
+          <i class="fa-solid fa-clock"></i>
+          <span id="todayHours">10:00 AM – 8:00 PM</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="schedule" id="schedule">
+  <div class="section-eyebrow">The Tide Table</div>
+  <h2>Where we'll be</h2>
+
+  <div class="day-strip" id="dayStrip"></div>
+
+  <div class="divider"></div>
+
+  <div class="location-panel">
+    <div class="location-info">
+      <h3 id="stopName" class="fade">Santa Monica Pier</h3>
+      <p id="stopNote" class="fade">Sunset service with live acoustic set</p>
+    </div>
+    <div class="location-details fade" id="stopDetails">
+      <div class="row">
+        <i class="fa-solid fa-location-dot"></i>
+        <span id="stopAddress">200 Santa Monica Pier, Santa Monica, CA</span>
+      </div>
+      <div class="row">
+        <i class="fa-solid fa-clock"></i>
+        <span id="stopHours">10:00 AM – 8:00 PM</span>
+      </div>
+      <button class="maps-btn" id="mapsBtn">Open in Maps</button>
+    </div>
+  </div>
+</section>
+
+<section class="menu-section" id="menu">
+  <div class="section-eyebrow">The Manifest</div>
+  <h2>Full menu</h2>
+
+  <div class="pill-row" id="pillRow"></div>
+
+  <div class="menu-grid">
+    <div class="menu-image">
+      <img id="menuImage" src="" alt="">
+    </div>
+    <div class="menu-copy">
+      <div class="section-eyebrow" id="menuKicker">From the griddle</div>
+      <h3 id="menuTitle" class="fade">Crepes</h3>
+      <p id="menuDesc" class="fade">Batter rested overnight, spun thin on a hot cast-iron griddle and folded to order.</p>
+      <div class="menu-items fade" id="menuItems"></div>
+    </div>
+  </div>
+</section>
+
+<section class="story-section" id="story">
+  <div class="story-grid">
+    <div class="story-copy">
+      <div class="section-eyebrow">Our Story</div>
+      <h2>One griddle, a salt breeze, and a very long coastline.</h2>
+      <p>Coastal Créperie began as a single crêpe pan at a Sunday market in Redondo Beach. Today we follow the shore from Malibu to Long Beach, batter rested overnight, lemons pressed each morning, matcha whisked to order.</p>
+      <p>Everything is made in front of you, in the two minutes it takes a crepe to turn golden.</p>
+    </div>
+    <div class="story-image">
+      <img src="assets/fullmenu.webp" alt="Crepe with berries, coffee and iced matcha on a wooden table">
+    </div>
+  </div>
+</section>
+
+<footer>
+  <figure class="footer__logo">
+    <img src="assets/logo.png" alt="">
+  </figure>
+  <h2>Follow the tide.</h2>
+  <p>Daily locations, last-minute stops and sold-out warnings go out on Instagram first.</p>
+  <div class="footer-actions">
+    <button class="footer-btn">
+      <i class="fa-brands fa-instagram"></i>
+      @COASTALCREPERIE
+    </button>
+    <button class="footer-btn">
+      <i class="fa-solid fa-phone"></i>
+      (310) 555-0142
+    </button>
+    <button class="footer-btn">
+      <i class="fa-regular fa-calendar"></i>
+      CATERING &amp; EVENTS
+    </button>
+  </div>
+  <div class="footer-fine">© 2026 COASTAL CRÉPERIE · SOUTHERN CALIFORNIA</div>
+</footer>
+
+<script src="script.js" defer></script>
+
+</body>
+</html>
