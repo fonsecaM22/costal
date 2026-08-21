@@ -238,6 +238,11 @@ loadSchedule();
         </div>
         <div class="item-price">${item.price}</div>
       `;
+
+      row.addEventListener('click', () => {
+        openItemModal(item, cat.image);
+      });
+
       menuItems.appendChild(row);
     });
 
@@ -250,3 +255,39 @@ loadSchedule();
 
   renderPills();
   renderMenuPanel();
+
+  // ---- Item Modal ----
+  const itemModal = document.getElementById('itemModal');
+  const modalClose = document.getElementById('modalClose');
+  const modalImage = document.getElementById('modalImage');
+  const modalName = document.getElementById('modalName');
+  const modalTags = document.getElementById('modalTags');
+  const modalDesc = document.getElementById('modalDesc');
+  const modalPrice = document.getElementById('modalPrice');
+
+  function openItemModal(item, categoryImage){
+    modalImage.src = categoryImage;
+    modalImage.alt = item.name;
+    modalName.textContent = item.name;
+    modalTags.textContent = item.tags;
+    modalDesc.textContent = item.desc;
+    modalPrice.textContent = item.price;
+
+    itemModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeItemModal(){
+    itemModal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  modalClose.addEventListener('click', closeItemModal);
+
+  itemModal.addEventListener('click', (e) => {
+    if (e.target === itemModal) closeItemModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeItemModal();
+  });

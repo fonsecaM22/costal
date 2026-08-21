@@ -29,6 +29,11 @@
   ul{list-style:none;}
   img{max-width:100%;display:block;}
 
+  html{
+    scroll-behavior: smooth;
+  
+  }
+
   /* ---------- HEADER ---------- */
   header{
     display:flex;
@@ -564,3 +569,98 @@
     max-width:1120px;
     margin:0 auto;
   }
+
+  /* ---------- ITEM MODAL ---------- */
+.menu-item{
+  cursor:pointer;
+  transition:opacity .15s ease;
+}
+.menu-item:hover{
+  opacity:.75;
+}
+
+.modal-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(21,37,49,.55);
+  backdrop-filter:blur(3px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .2s ease, visibility .2s ease;
+  z-index:100;
+}
+.modal-overlay.open{
+  opacity:1;
+  visibility:visible;
+}
+.modal-box{
+  background:var(--white);
+  border-radius:10px;
+  max-width:420px;
+  width:100%;
+  overflow:hidden;
+  position:relative;
+  transform:translateY(12px);
+  transition:transform .2s ease;
+  box-shadow:0 20px 60px rgba(0,0,0,.25);
+}
+.modal-overlay.open .modal-box{
+  transform:translateY(0);
+}
+.modal-close{
+  position:absolute;
+  top:14px;
+  right:14px;
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  border:none;
+  background:rgba(255,255,255,.85);
+  color:var(--navy);
+  font-size:.8rem;
+  line-height:1;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:2;
+}
+.modal-close:hover{
+  background:#fff;
+}
+.modal-image{
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  background:var(--sand);
+}
+.modal-content{
+  padding:26px 28px 30px;
+}
+.modal-content h3{
+  font-size:1.7rem;
+  margin-bottom:10px;
+}
+.modal-tags{
+  font-size:.68rem;
+  letter-spacing:1.5px;
+  color:var(--clay-dark);
+  font-weight:500;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+.modal-desc{
+  font-size:.95rem;
+  line-height:1.6;
+  color:var(--muted);
+  margin-bottom:18px;
+}
+.modal-price{
+  font-family:'Cormorant Garamond', serif;
+  font-size:1.4rem;
+  color:var(--navy);
+}

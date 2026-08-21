@@ -15,7 +15,7 @@
 <header>
   <div class="brand">
     <figure class="logo">
-      <img src="assets/logo.png" alt="">
+      <!-- <img src="assets/logo.png" alt=""> -->
     </figure>
     Coastal Créperie
   </div>
@@ -100,6 +100,8 @@
   </div>
 </section>
 
+
+
 <section class="story-section" id="story">
   <div class="story-grid">
     <div class="story-copy">
@@ -116,7 +118,7 @@
 
 <footer>
   <figure class="footer__logo">
-    <img src="assets/logo.png" alt="">
+    <!-- <img src="assets/logo.png" alt=""> -->
   </figure>
   <h2>Follow the tide.</h2>
   <p>Daily locations, last-minute stops and sold-out warnings go out on Instagram first.</p>
@@ -127,7 +129,7 @@
     </button>
     <button class="footer-btn">
       <i class="fa-solid fa-phone"></i>
-      (310) 555-0142
+      coastalcreperie@gmail.com
     </button>
     <button class="footer-btn">
       <i class="fa-regular fa-calendar"></i>
@@ -136,6 +138,19 @@
   </div>
   <div class="footer-fine">© 2026 COASTAL CRÉPERIE · SOUTHERN CALIFORNIA</div>
 </footer>
+
+<div class="modal-overlay" id="itemModal">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="Close"><i class="fa-solid fa-x"></i></button>
+    <img class="modal-image" id="modalImage" src="" alt="">
+    <div class="modal-content">
+      <h3 id="modalName"></h3>
+      <p class="modal-tags" id="modalTags"></p>
+      <p class="modal-desc" id="modalDesc"></p>
+      <p class="modal-price" id="modalPrice"></p>
+    </div>
+  </div>
+</div>
 
 <script src="script.js" defer></script>
 
