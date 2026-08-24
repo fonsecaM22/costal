@@ -353,9 +353,9 @@
   }
   @media (max-width:520px){
     .day__strip{grid-template-columns:repeat(3,1fr);}
-    .main__title{font-size:2.7rem;}
+    .main__title{font-size:2.9rem;}
     .eyebrow{
-      font-size: 7px;
+      font-size: 8px;
     }
   }
 
