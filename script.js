@@ -8,6 +8,9 @@ const stopNote = document.getElementById('stopNote');
 const stopAddress = document.getElementById('stopAddress');
 const stopHours = document.getElementById('stopHours');
 const mapsBtn = document.getElementById('mapsBtn');
+const todayStopName = document.getElementById('todayStopName');
+const todayAddress = document.getElementById('todayAddress');
+const todayHours = document.getElementById('todayHours');
 
 async function loadSchedule() {
   try {
@@ -41,6 +44,22 @@ function getWeekStart() {
   return `${year}-${month}-${day}`;
 }
 
+function updateTodayCard(){
+  const todayIndex = new Date().getDay();
+  const todayStop = schedule[todayIndex];
+
+  if (!todayStop || todayStop.closed){
+    todayStopName.textContent = 'No Sevice Today';
+    todayAddress.textContent = '';
+    todayHours.textContent = 'Closed';
+    return;
+  }
+
+  todayStopName.textContent = todayStop.name;
+  todayAddress.textContent = todayStop.address;
+  todayHours.textContent = todayStop.hours;
+}
+
 function loadCurrentWeek() {
   const weekStart = getWeekStart();
 
@@ -63,6 +82,7 @@ function loadCurrentWeek() {
 
   renderDayStrip();
   updatePanel();
+  updateTodayCard();
 }
 
 function renderDayStrip() {
@@ -100,12 +120,7 @@ function updatePanel() {
   const stop = schedule[selectedIndex];
 
    if (stop.closed) {
-    stopName.textContent = 'No service today';
-    stopNote.textContent = 'We are taking the day off. Check back tomorrow!';
-    stopAddress.textContent = '';
-    stopHours.textContent = 'Closed';
-
-    mapsBtn.style.display = 'none';
+    stopDetails.innerHTML = `<p>We are taking the day off. Check back tomorrow!</p>`
 
     return;
   }

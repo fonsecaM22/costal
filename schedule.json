@@ -68,64 +68,59 @@
         "dow": "SUN",
         "date": 23,
         "mon": "AUG",
-        "name": "Downtown Santa Monica",
-        "address": "1324 3rd Street Promenade, Santa Monica, CA",
-        "hours": "10:00 AM – 6:00 PM",
-        "note": "Sunday afternoon service"
+        "closed": true
       },
       {
         "dow": "MON",
         "date": 24,
         "mon": "AUG",
-        "name": "Malibu Country Mart",
-        "address": "3835 Cross Creek Rd, Malibu, CA",
-        "hours": "9:00 AM – 4:00 PM",
-        "note": "Morning crepes by the coast"
+        "name": "Keiser University Naples",
+        "address": "3909 Tamiami Trl E, Naples, FL 34112",
+        "hours": "11:00 AM – 1:00 PM",
+        "note": "Morning crepes at the University"
+        
       },
       {
         "dow": "TUE",
         "date": 25,
         "mon": "AUG",
-        "name": "Marina del Rey",
-        "address": "13701 Fiji Way, Marina del Rey, CA",
-        "hours": "10:00 AM – 7:00 PM",
-        "note": "Waterfront service"
+        "name": "Legacy Gateway Apartments",
+        "address": "10900 Legacy Gateway Cir, Fort Myers, FL 33913",
+        "hours": "5:00 pM – 8:00 PM",
+        "note": "Dinner crepes at Gateway"
       },
       {
         "dow": "WED",
         "date": 26,
         "mon": "AUG",
-        "name": "Venice Beach",
+        "name": "Gulf Coast Medical Center",
         "address": "1800 Ocean Front Walk, Venice, CA",
-        "hours": "10:00 AM – 7:00 PM",
-        "note": "Lunch rush expected"
+        "hours": "7:00 AM – 10:00 AM",
+        "note": "Morning crepes at Medical Center"
       },
       {
         "dow": "THU",
         "date": 27,
         "mon": "AUG",
-        "name": "Manhattan Beach",
+        "name": "Marea Apartments",
         "address": "Manhattan Beach Blvd, Manhattan Beach, CA",
-        "hours": "9:00 AM – 5:00 PM",
-        "note": "Beachside service"
+        "hours": "8:00 AM – 11:00 AM",
+        "note": "Morning crepes at Marea"
       },
       {
         "dow": "FRI",
         "date": 28,
         "mon": "AUG",
-        "name": "Hermosa Beach",
-        "address": "1 Pier Ave, Hermosa Beach, CA",
-        "hours": "11:00 AM – 9:00 PM",
-        "note": "Friday night crepes"
+        "closed": true
       },
       {
         "dow": "SAT",
         "date": 29,
         "mon": "AUG",
-        "name": "Redondo Beach",
+        "name": "Fort Myers Farmers Market",
         "address": "181 N Harbor Dr, Redondo Beach, CA",
-        "hours": "10:00 AM – 8:00 PM",
-        "note": "Weekend waterfront service"
+        "hours": "9:00 AM – 1:00 PM",
+        "note": "Crepes and Coffee at FM Farmers Market"
       }
     ]
   }
