@@ -15,32 +15,41 @@
 <header>
   <div class="brand">
     <figure class="logo">
-      <!-- <img src="assets/logo.png" alt=""> -->
+      <img src="assets/logo.png" alt="">
     </figure>
+    <h1 class="nav__title">
     Coastal Créperie
+    </h1>
   </div>
   <nav>
-    <ul>
-      <li><a href="#">Today</a></li>
-      <li><a href="#schedule">Schedule</a></li>
-      <li><a href="#menu">Menu</a></li>
-      <li><a href="#story">Our Story</a></li>
+    <ul class="nav__link--list">
+      <li class="nav__link--anchor">
+        <a href="#">Today</a>
+      </li>
+      <li class="nav__link--anchor">
+        <a href="#schedule">Schedule</a>
+      </li>
+      <li class="nav__link--anchor">
+        <a href="#menu">Menu</a>
+      </li>
+      <li class="nav__link--anchor">
+        <a href="#story">Our Story</a>
+      </li>
     </ul>
   </nav>
-  <button class="find-us-btn" id="findUsBtn">Find Us</button>
+  <button class="find__us--btn" id="findUsBtn">Find Us</button>
 </header>
 
-<section class="hero">
-  <div class="hero-content">
-    <div class="eyebrow">Hand-spun · Seaside · Since 2019</div>
-    <h1 class="title">Crepes made</h1>
-      <h1 class="title">where the tide turns.</h1>
+<section class="main">
+  <div class="main__content">
+    <div class="eyebrow">Signature ·  Sweet · Savory · Since 2025</div>
+    <h1 class="main__title">Coastal Créperie </h1>
     <p class="main__para">A wandering créperie serving delicate crepes, ceremonial matcha, pressed lemonade and slow coffee along the California coast.</p>
 
-    <div class="today-card">
-      <div class="eyebrow"><span class="dot"></span> Casting Anchor Today</div>
-      <h3 id="todayStopName">Santa Monica Pier</h3>
-      <div class="today-meta">
+    <div class="today__card">
+      <div class="eyebrow card__eyebrow"><span class="dot"></span> Casting Anchor Today</div>
+      <h3 class="card__title" id="todayStopName">Santa Monica Pier</h3>
+      <div class="today__meta">
         <span>
           <i class="fa-solid fa-location-dot"></i>
           <span id="todayAddress">200 Santa Monica Pier, Santa Monica, CA</span>
@@ -55,10 +64,10 @@
 </section>
 
 <section class="schedule" id="schedule">
-  <div class="section-eyebrow">The Tide Table</div>
-  <h2>Where we'll be</h2>
+  <div class="section__eyebrow">The Tide Table</div>
+  <h2 class="section__title">Where we'll be</h2>
 
-  <div class="day-strip" id="dayStrip"></div>
+  <div class="day__strip" id="dayStrip"></div>
 
   <div class="divider"></div>
 
@@ -76,16 +85,16 @@
         <i class="fa-solid fa-clock"></i>
         <span id="stopHours">10:00 AM – 8:00 PM</span>
       </div>
-      <button class="maps-btn" id="mapsBtn">Open in Maps</button>
+      <button class="maps__btn btn" id="mapsBtn">Open in Maps</button>
     </div>
   </div>
 </section>
 
-<section class="menu-section" id="menu">
-  <div class="section-eyebrow">The Manifest</div>
-  <h2>Full menu</h2>
+<section class="menu__section" id="menu">
+  <div class="section__eyebrow">The Manifest</div>
+  <h2 class="section__title">Full menu</h2>
 
-  <div class="pill-row" id="pillRow"></div>
+  <div class="pill__row" id="pillRow"></div>
 
   <div class="menu-grid">
     <div class="menu-image">
@@ -105,7 +114,7 @@
 <section class="story-section" id="story">
   <div class="story-grid">
     <div class="story-copy">
-      <div class="section-eyebrow">Our Story</div>
+      <div class="section__eyebrow">Our Story</div>
       <h2>One griddle, a salt breeze, and a very long coastline.</h2>
       <p>Coastal Créperie began as a single crêpe pan at a Sunday market in Redondo Beach. Today we follow the shore from Malibu to Long Beach, batter rested overnight, lemons pressed each morning, matcha whisked to order.</p>
       <p>Everything is made in front of you, in the two minutes it takes a crepe to turn golden.</p>
@@ -118,7 +127,7 @@
 
 <footer>
   <figure class="footer__logo">
-    <!-- <img src="assets/logo.png" alt=""> -->
+    <img src="assets/logo.png" alt="">
   </figure>
   <h2>Follow the tide.</h2>
   <p>Daily locations, last-minute stops and sold-out warnings go out on Instagram first.</p>

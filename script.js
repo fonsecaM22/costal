@@ -72,7 +72,7 @@ function renderDayStrip() {
     const card = document.createElement('button');
 
     card.className =
-      'day-card' +
+      'day__card' +
       (i === selectedIndex ? ' selected' : '');
 
     card.innerHTML = `
