@@ -120,7 +120,12 @@ function updatePanel() {
   const stop = schedule[selectedIndex];
 
    if (stop.closed) {
-    stopDetails.innerHTML = `<p>We are taking the day off. Check back tomorrow!</p>`
+    stopName.textContent = 'No service today';
+    stopNote.textContent = 'We are taking the day off. Check back tomorrow!';
+    stopAddress.textContent = '';
+    stopHours.textContent = 'Closed';
+
+    mapsBtn.style.display = 'none';
 
     return;
   }
