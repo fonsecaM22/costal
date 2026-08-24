@@ -529,13 +529,15 @@
   }
 
   footer h2{
-    color:#fff;
+    /* color:#fff; */
+    color: #1B2A4A;
     font-size:2.6rem;
     margin-bottom:16px;
   }
   footer > p{
-    color:#b9c0c6;
+    /* color:#b9c0c6; */
     color: #fff;
+    color: #1B2A4A;
     font-size:.95rem;
     max-width:480px;
     margin:0 auto 38px;
@@ -559,7 +561,8 @@
     font-weight:500;
     border:1px solid rgba(255,255,255,.18);
     background:transparent; 
-    color:#eae7de;
+    /* color:#eae7de; */
+    color: #1B2A4A;
     cursor:pointer;
     transition:all .2s ease;
   }
@@ -584,7 +587,7 @@
     font-size:.72rem;
     letter-spacing:1.5px;
     /* color:#7c8790; */
-    color: var(--gold);
+    color: var(--navy-deep);
     border-top:1px solid rgba(255,255,255,.08);
     padding-top:28px;
     max-width:1120px;
