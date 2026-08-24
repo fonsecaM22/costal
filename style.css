@@ -72,7 +72,7 @@
     letter-spacing:.3px;
   }
    .logo{
-    width:50px;
+    width:90px;
     height:50px;
     display:flex;
     align-items:center;
@@ -523,7 +523,7 @@
     color:#eae7de;
   }
   .footer__logo{
-    width:90px;
+    width:125px;
     height:90px;
     margin-bottom: 32px;
   }

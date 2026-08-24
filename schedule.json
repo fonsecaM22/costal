@@ -94,7 +94,7 @@
         "date": 26,
         "mon": "AUG",
         "name": "Gulf Coast Medical Center",
-        "address": "1800 Ocean Front Walk, Venice, CA",
+        "address": "13681 Doctors Way, Fort Myers, FL 33912",
         "hours": "7:00 AM – 10:00 AM",
         "note": "Morning crepes at Medical Center"
       },
@@ -103,7 +103,7 @@
         "date": 27,
         "mon": "AUG",
         "name": "Marea Apartments",
-        "address": "Manhattan Beach Blvd, Manhattan Beach, CA",
+        "address": "3350 Putney Ct, Naples, FL 34112",
         "hours": "8:00 AM – 11:00 AM",
         "note": "Morning crepes at Marea"
       },
@@ -118,7 +118,7 @@
         "date": 29,
         "mon": "AUG",
         "name": "Fort Myers Farmers Market",
-        "address": "181 N Harbor Dr, Redondo Beach, CA",
+        "address": "2200 First St, Fort Myers, FL 33901",
         "hours": "9:00 AM – 1:00 PM",
         "note": "Crepes and Coffee at FM Farmers Market"
       }
