@@ -353,9 +353,9 @@
   }
   @media (max-width:520px){
     .day__strip{grid-template-columns:repeat(3,1fr);}
-    .main__title{font-size:4rem;}
+    .main__title{font-size:3.5rem;}
     .eyebrow{
-      font-size: 0.7em;
+      font-size: 0.5em;
     }
   }
 
@@ -471,7 +471,7 @@
   @media (max-width:860px){
     .menu-grid{grid-template-columns:1fr;}
     .menu-image{aspect-ratio:16/10;}
-    .menu-section{padding:60px 22px 70px;}
+    .menu-section{padding:60px 32px 70px;}
   }
 
   /* ---------- OUR STORY ---------- */
