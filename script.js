@@ -164,7 +164,7 @@ loadSchedule();
       label: 'Crepes',
       kicker: 'From the griddle',
       desc: 'Batter rested overnight, spun thin on a hot cast-iron griddle and folded to order.',
-      image: './assets/crepe.webp' ,
+      image: './assets/crepe.heic' ,
       items: [
         { name:'Classic Sucre', desc:'Butter, cane sugar, fresh lemon', tags:'Bright · Simple', price:'$7.00' },
         { name:'Salted Caramel Banana', desc:'Caramelized banana, sea salt caramel, toasted almond', tags:'Sweet · Toasty', price:'$11.00' },
@@ -190,7 +190,7 @@ loadSchedule();
       label:'Lemonade',
       kicker:'Pressed daily',
       desc:'Cold-pressed citrus, lightly sweetened, built to order over hand-cracked ice.',
-      image: './assets/lemonade.webp',
+      image: './assets/lemonade.heic',
       items: [
         { name:'Classic Pressed', desc:'Lemon, cane sugar, sparkling water', tags:'Bright · Fizzy', price:'$5.00' },
         { name:'Lavender Lemonade', desc:'Lemon, house lavender syrup', tags:'Floral · Calm', price:'$6.00' },
@@ -202,7 +202,7 @@ loadSchedule();
       label:'Coffee',
       kicker:'Slow brewed',
       desc:'Single-origin beans, roasted in small batches, brewed to order — no drip machines aboard.',
-      image: './assets/coffee.webp',
+      image: './assets/coffee.heic',
       items: [
         { name:'Pour Over', desc:'Rotating single-origin, brewed to order', tags:'Clean · Bright', price:'$5.00' },
         { name:'Cortado', desc:'Double espresso, steamed milk, 1:1', tags:'Balanced · Bold', price:'$5.50' },
