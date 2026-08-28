@@ -477,7 +477,7 @@
 
   @media (max-width:860px){
     .menu-grid{grid-template-columns:1fr;}
-    .menu-image{aspect-ratio:16/10;}
+    .menu-image{aspect-ratio:10/10;}
     .menu-section{padding:60px 32px 70px;}
   }
 
