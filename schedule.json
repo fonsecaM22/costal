@@ -111,7 +111,10 @@
         "dow": "FRI",
         "date": 28,
         "mon": "AUG",
-        "closed": true
+         "name": "Keiser University Naples",
+        "address": "3909 Tamiami Trl E, Naples, FL 34112",
+        "hours": "11:00 AM – 1:00 PM",
+        "note": "Morning crepes at the University"
       },
       {
         "dow": "SAT",
