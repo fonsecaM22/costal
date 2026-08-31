@@ -367,7 +367,7 @@
     .day__strip{grid-template-columns:repeat(3,1fr);}
     .main__title{font-size: 3rem;}
     .eyebrow{
-      font-size: 10px;
+      font-size: 8px;
     }
     .logo{
       width: 70px;
@@ -498,10 +498,12 @@
     gap:64px;
     align-items:center;
   }
-  .story-copy h2{
+  .story__title{
+    color:#0793a5;
     font-size:2.9rem;
     line-height:1.15;
     margin-bottom:28px;
+    font-weight: 600;
   }
   .story-copy p{
     color:var(--ink);
@@ -522,7 +524,7 @@
   @media (max-width:860px){
     .story-section{padding:60px 22px;}
     .story-grid{grid-template-columns:1fr;gap:36px;}
-    .story-copy h2{font-size:2.2rem;}
+    .story__ttile h2{font-size:2.2rem;}
   }
 
   /* ---------- FOOTER ---------- */

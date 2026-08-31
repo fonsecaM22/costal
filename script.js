@@ -164,11 +164,11 @@ loadSchedule();
       label: 'Crepes',
       kicker: 'From the Krampouz griddle',
       desc: 'Full crepes, not garnish. If it’s a strawberry crepe, you get a real amount of berries — not three pieces for the photo.',
-      image: './assets/crepe.heic' ,
+      image: './assets/berry_bliss.webp' ,
       items: [
-        { name:'The Berry Bliss', desc:'Nutella, Fresh Berries, Dark Chocolate', tags:'Sweet', price:'$13.00' },
-        { name:'Coco Bliss', desc:'Condensed Milk, Berries, Coconut Shavings, Chocolate Drizzle', tags:'Sweet', price:'$12.00' },
-        { name:'Nutella Banana', desc:'Nutella, Bananas, Chocolate Drizzles', tags:'Sweet', price:'$11.00' },
+        { name:'The Berry Bliss', desc:'Nutella, Fresh Berries, Dark Chocolate', tags:'Sweet', price:'$13.00', image:'./assets/berry_bliss.webp' },
+        { name:'Coco Bliss', desc:'Condensed Milk, Berries, Coconut Shavings, Chocolate Drizzle', tags:'Sweet', price:'$12.00', image:'./assets/coco.webp' },
+        { name:'Nutella Banana', desc:'Nutella, Bananas, Chocolate Drizzles', tags:'Sweet', price:'$11.00',image:'./assets/banana_nutella.webp'  },
         { name:'The Fifth Ave Steak', desc:'Grilled Tri-Tip Steak, Cheese, Tomatoes, Marinated Onion and Spring Mix', tags:'House-Made Signature Sauce · Crafted Daily', price:'$8.00' },
         { name:'Naples Sunset Shrimp', desc:'Grilled Shrimp, Cheese, Arugula, Onion and Spring Mix', tags:'House-Made Signature Sauce · Crafted Daily', price:'$17.00' },
         { name:'Gulf Coast Chicken & Mushrooms', desc:'Grilled Chicken, Sauteed Mushrooms, Spring Mix, Cheese, Tomatoes and Onion', tags:'House-Made Signature Sauce · Crafted Daily', price:'$16.00' }, 
@@ -179,9 +179,10 @@ loadSchedule();
       label:'Matcha',
       kicker:'First- harvest matcha ',
       desc:'Matcha shipped from Kyoto, Japan every few weeks.',
-      image: './assets/matcha-4.heic',
+      image: './assets/matcha.webp',
       items: [
-        { name:'Honey Lavender Matcha', desc:'Matcha, Real Honey', tags:'Fresh · Clean', price:'$8.00' },
+        { name:'Iced Matcha', desc:'First-harvest Matcha ', tags:'Fresh', price:'$8.00', image:'./assets/matcha.webp' },
+        { name:'Honey Lavender Matcha', desc:'Matcha, Real Honey', tags:'Fresh · Clean', price:'$8.00', image:'./assets/honey_matcha.webp' },
         { name:'Strawberry Matcha', desc:'Matcha, Strawberry Puree', tags:'Creamy · Cool', price:'$8.00' },
         { name:'Salted Maple Vanilla Matcha', desc:'Matcha, Salted Maple', tags:'Salted · Rich', price:'$8.00' },
         { name:'Blueberry Cream Matcha', desc:'Matcha, Blueberry', tags:'Creamy · Sweet', price:'$8.00' },
@@ -191,10 +192,10 @@ loadSchedule();
       label:'Lemonade',
       kicker:'Freshly Squeezed Lemonade',
       desc:'Fresh - squeezed lemons.',
-      image: './assets/lemonade-2.heic',
+      image: './assets/lemonade.webp',
       items: [
-        { name:'Classic Lemonade', desc:'Lemon, Freshly Squeezed', tags:'Bright · Fresh', price:'$7.00' },
-        { name:'Blue Raspberry', desc:'Lemon, Blue Raspberry', tags:'Tropical · Fresh', price:'$8.00' },
+        { name:'Classic Lemonade', desc:'Lemon, Freshly Squeezed', tags:'Bright · Fresh', price:'$7.00', image: './assets/lemonade.webp' },
+        { name:'Blue Raspberry', desc:'Lemon, Blue Raspberry', tags:'Tropical · Fresh', price:'$8.00', image:'./assets/blue_raspberry.webp' },
         { name:'Jalapeno Lemonade', desc:'Lemon, Jalapeno', tags:'Spicy · Fresh', price:'$7.50' },
         { name:'Classic Lemonade with Flavor (Choose a flavor)', desc:'Mango, Cherry, Passionfruit, Pineapple, Raspberry, Strawberry, Rose, Grenadine, Lavender, Blueberry, Cranberry, Coconut, Peppermint', tags:'Tropical · Fresh', price:'$8.50' },
         { name:'Lotus Energy + Hydration (Lemonade Addition)', desc:'Energy + Hydrate', tags:'Lotus · Hydrate', price:'$3.00' },
@@ -205,12 +206,12 @@ loadSchedule();
       label:'Coffee',
       kicker:'freshly roasted coffee',
       desc:'Freshly roasted by a local roaster',
-      image: './assets/coffee-3.heic',
+      image: './assets/caramel_drizzle.webp',
       items: [
-        { name:'Caramel Drizzle Latte', desc:'Caramel', tags:'Caramel Drizzle · Creamy', price:'$7.50' },
-        { name:'Cookie Butter Latte', desc:'Cookie Butter', tags:'Creamy', price:'$7.50' },
-        { name:'Salted Maple Vanilla Latte', desc:'Salted Maple', tags:'Smooth · Salty', price:'$7.50' },
-        { name:'Banana Bread Latte', desc:'Banana', tags:'Fresh · Creamy', price:'$7.50' },
+        { name:'Caramel Drizzle Latte', desc:'Caramel', tags:'Caramel Drizzle · Creamy', price:'$7.50', image: './assets/caramel_drizzle.webp' },
+        { name:'Cookie Butter Latte', desc:'Cookie Butter', tags:'Creamy', price:'$7.50', image: './assets/coffee.webp' },
+        { name:'Salted Maple Vanilla Latte', desc:'Salted Maple', tags:'Smooth · Salty', price:'$7.50', image: './assets/coffee.webp' },
+        { name:'Banana Bread Latte', desc:'Banana', tags:'Fresh · Creamy', price:'$7.50', image: './assets/coffee.webp'},
         
       ]
     }
@@ -263,8 +264,8 @@ loadSchedule();
         <div class="item-price">${item.price}</div>
       `;
 
-      row.addEventListener('click', () => {
-        openItemModal(item, cat.image);
+            row.addEventListener('click', () => {
+        openItemModal(item, item.image || cat.image);
       });
 
       menuItems.appendChild(row);
@@ -299,6 +300,7 @@ loadSchedule();
 
     itemModal.classList.add('open');
     document.body.style.overflow = 'hidden';
+    
   }
 
   function closeItemModal(){
