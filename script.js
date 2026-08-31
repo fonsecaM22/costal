@@ -44,20 +44,109 @@ function getWeekStart() {
   return `${year}-${month}-${day}`;
 }
 
+// ---- Time / active-location helpers ----
+
+function parseTimeToMinutes(timeStr) {
+  // Parses "9:00 AM" or "12:30 PM" into minutes since midnight
+  const match = timeStr.trim().match(/(\d+):(\d+)\s*(AM|PM)/i);
+  if (!match) return null;
+
+  let [, hourStr, minStr, period] = match;
+  let hour = parseInt(hourStr, 10);
+  const min = parseInt(minStr, 10);
+
+  period = period.toUpperCase();
+  if (period === 'PM' && hour !== 12) hour += 12;
+  if (period === 'AM' && hour === 12) hour = 0;
+
+  return hour * 60 + min;
+}
+
+function parseHoursRange(hoursStr) {
+  // "9:00 AM – 12:00 PM" -> { start, end } in minutes since midnight
+  const [startStr, endStr] = hoursStr.split(/[–-]/);
+
+  return {
+    start: parseTimeToMinutes(startStr),
+    end: parseTimeToMinutes(endStr)
+  };
+}
+
+function getNowMinutes() {
+  const now = new Date();
+  return now.getHours() * 60 + now.getMinutes();
+}
+
+function isWithinRange(nowMin, start, end) {
+  if (start === null || end === null) return false;
+
+  // Handle ranges that cross midnight, e.g. "9:00 PM – 1:00 AM"
+  if (end <= start) {
+    end += 24 * 60;
+    if (nowMin < start) nowMin += 24 * 60;
+  }
+
+  return nowMin >= start && nowMin < end;
+}
+
+function minutesUntil(nowMin, start) {
+  if (start === null) return Infinity;
+  let diff = start - nowMin;
+  if (diff < 0) diff += 24 * 60;
+  return diff;
+}
+
+function getActiveLocation(stop) {
+  // Returns { name, address, hours, note, isSecond } for whichever
+  // location should be shown right now.
+  const primary = {
+    name: stop.name,
+    address: stop.address,
+    hours: stop.hours,
+    note: stop.note,
+    isSecond: false
+  };
+
+  if (!stop.secondLocation) return primary;
+
+  const second = {
+    name: stop.secondLocation.name,
+    address: stop.secondLocation.address,
+    hours: stop.secondLocation.hours,
+    note: stop.secondLocation.note,
+    isSecond: true
+  };
+
+  const nowMin = getNowMinutes();
+  const primaryRange = parseHoursRange(stop.hours);
+  const secondRange = parseHoursRange(stop.secondLocation.hours);
+
+  if (isWithinRange(nowMin, secondRange.start, secondRange.end)) return second;
+  if (isWithinRange(nowMin, primaryRange.start, primaryRange.end)) return primary;
+
+  // Neither window is open right now — show whichever comes up next.
+  const untilPrimary = minutesUntil(nowMin, primaryRange.start);
+  const untilSecond = minutesUntil(nowMin, secondRange.start);
+
+  return untilSecond < untilPrimary ? second : primary;
+}
+
 function updateTodayCard(){
   const todayIndex = new Date().getDay();
   const todayStop = schedule[todayIndex];
 
   if (!todayStop || todayStop.closed){
-    todayStopName.textContent = 'No Sevice Today';
+    todayStopName.textContent = 'No Service Today';
     todayAddress.textContent = '';
     todayHours.textContent = 'Closed';
     return;
   }
 
-  todayStopName.textContent = todayStop.name;
-  todayAddress.textContent = todayStop.address;
-  todayHours.textContent = todayStop.hours;
+  const active = getActiveLocation(todayStop);
+
+  todayStopName.textContent = active.name;
+  todayAddress.textContent = active.address;
+  todayHours.textContent = active.hours;
 }
 
 function loadCurrentWeek() {
@@ -119,7 +208,7 @@ function selectDay(i) {
 function updatePanel() {
   const stop = schedule[selectedIndex];
 
-   if (stop.closed) {
+  if (stop.closed) {
     stopName.textContent = 'No service today';
     stopNote.textContent = 'We are taking the day off. Check back tomorrow!';
     stopAddress.textContent = '';
@@ -130,15 +219,17 @@ function updatePanel() {
     return;
   }
 
-  stopName.textContent = stop.name;
-  stopNote.textContent = stop.note;
-  stopAddress.textContent = stop.address;
-  stopHours.textContent = stop.hours;
+  const active = getActiveLocation(stop);
+
+  stopName.textContent = active.name;
+  stopNote.textContent = active.note;
+  stopAddress.textContent = active.address;
+  stopHours.textContent = active.hours;
 
   mapsBtn.style.display = 'inline-flex';
 
   mapsBtn.onclick = () => {
-    const query = encodeURIComponent(stop.address);
+    const query = encodeURIComponent(active.address);
 
     window.open(
       `https://www.google.com/maps/search/?api=1&query=${query}`,
@@ -157,6 +248,14 @@ document.getElementById('findUsBtn').addEventListener('click', () => {
 
 // Load JSON
 loadSchedule();
+// Re-check every minute so a stop with a second location swaps over
+// automatically, without needing a page reload.
+setInterval(() => {
+  if (!schedule.length) return;
+
+  updateTodayCard();
+  updatePanel();
+}, 60 * 1000);
 
   // ---- Menu ----
   const menu = {
@@ -317,3 +416,5 @@ loadSchedule();
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeItemModal();
   });
+
+ 

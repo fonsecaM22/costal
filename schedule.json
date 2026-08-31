@@ -14,7 +14,14 @@
         "name": "SWELL BY SOLTURA",
         "address": "26502 Longboard Drive, Bonita Springs",
         "hours": "9:00 AM – 12:00 PM",
-        "note": "Morning crepes at SWELL"
+        "note": "Morning crepes at SWELL",
+        "secondLocation": {
+            "name": "Asprie Naples",
+            "address": "5050 Aspire Way, Naples",
+             "hours": "5:00 PM – 8:00 PM",
+             "note": "Dinner crepes at Asprie Naples"
+  }
+        
       },
       {
         "dow": "TUE",
@@ -29,7 +36,13 @@
         "name": "Gulf Coast Medical Center",
         "address": "13681 Doctors Way, Fort Myers",
         "hours": "7:00 AM – 10:00 AM",
-        "note": "Morning crepes at Medical Center"
+        "note": "Morning crepes at Medical Center", 
+        "secondLocation": {
+            "name": "Keiser University Naples",
+            "address": "3909 Tamiami Trl E, Naples",
+             "hours": "11:30 AM – 1:30 PM",
+             "note": "Lunch crepes at the University"
+  }
       },
       {
         "dow": "THU",
@@ -47,7 +60,13 @@
         "name": "Keiser University Naples",
         "address": "3909 Tamiami Trl E, Naples",
         "hours": "11:00 AM – 1:00 PM",
-        "note": "Lunch crepes at the University"
+        "note": "Lunch crepes at the University",
+        "secondLocation":{
+          "name": "RiverCreek",
+          "address": "12776 Springbrook Ct, Estero", 
+          "hours": "5:00 PM – 8:00 PM",
+          "note": "Dinner crepes at RiverCreek"
+        }
       },
       {
        "dow": "SAT",
@@ -85,25 +104,25 @@
       },
       {
        "dow": "WED",
-        "date": 8,
-        "mon": "SEP",
-        "closed":true
-      },
-      {
-        "dow": "THU",
         "date": 9,
         "mon": "SEP",
         "closed":true
       },
       {
-        "dow": "FRI",
+        "dow": "THU",
         "date": 10,
         "mon": "SEP",
         "closed":true
       },
       {
-        "dow": "SAT",
+        "dow": "FRI",
         "date": 11,
+        "mon": "SEP",
+        "closed":true
+      },
+      {
+        "dow": "SAT",
+        "date": 12,
         "mon": "SEP",
         "closed":true
       }
