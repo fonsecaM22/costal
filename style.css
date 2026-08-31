@@ -24,7 +24,7 @@
     font-family:'Cormorant Garamond', serif;
     font-weight:500;
   }
-  a{text-decoration:none;color:inherit;}
+  a{text-decoration:none;color:inherit; cursor: pointer;}
   ul{list-style:none;}
   img{max-width:100%;display:block;}
 
