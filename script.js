@@ -162,52 +162,56 @@ loadSchedule();
   const menu = {
     crepes: {
       label: 'Crepes',
-      kicker: 'From the griddle',
-      desc: 'Batter rested overnight, spun thin on a hot cast-iron griddle and folded to order.',
+      kicker: 'From the Krampouz griddle',
+      desc: 'Full crepes, not garnish. If it’s a strawberry crepe, you get a real amount of berries — not three pieces for the photo.',
       image: './assets/crepe.heic' ,
       items: [
-        { name:'Classic Sucre', desc:'Butter, cane sugar, fresh lemon', tags:'Bright · Simple', price:'$7.00' },
-        { name:'Salted Caramel Banana', desc:'Caramelized banana, sea salt caramel, toasted almond', tags:'Sweet · Toasty', price:'$11.00' },
-        { name:'Coastal Berry', desc:'Market berries, mascarpone cream, honey drizzle', tags:'Tart · Creamy', price:'$12.00' },
-        { name:'Nutella Noisette', desc:'Hazelnut spread, banana, powdered sugar', tags:'Rich · Nutty', price:'$10.00' },
-        { name:'Jambon & Gruyère', desc:'Black forest ham, aged gruyère, dijon cream', tags:'Savory · Sharp', price:'$13.00' },
-        { name:'Garden Chèvre', desc:'Goat cheese, spinach, sun-dried tomato, basil', tags:'Herbal · Tangy', price:'$13.00' },
+        { name:'The Berry Bliss', desc:'Nutella, Fresh Berries, Dark Chocolate', tags:'Sweet', price:'$13.00' },
+        { name:'Coco Bliss', desc:'Condensed Milk, Berries, Coconut Shavings, Chocolate Drizzle', tags:'Sweet', price:'$12.00' },
+        { name:'Nutella Banana', desc:'Nutella, Bananas, Chocolate Drizzles', tags:'Sweet', price:'$11.00' },
+        { name:'The Fifth Ave Steak', desc:'Grilled Tri-Tip Steak, Cheese, Tomatoes, Marinated Onion and Spring Mix', tags:'House-Made Signature Sauce · Crafted Daily', price:'$8.00' },
+        { name:'Naples Sunset Shrimp', desc:'Grilled Shrimp, Cheese, Arugula, Onion and Spring Mix', tags:'House-Made Signature Sauce · Crafted Daily', price:'$17.00' },
+        { name:'Gulf Coast Chicken & Mushrooms', desc:'Grilled Chicken, Sauteed Mushrooms, Spring Mix, Cheese, Tomatoes and Onion', tags:'House-Made Signature Sauce · Crafted Daily', price:'$16.00' }, 
       ]
     },
+    
     matcha: {
       label:'Matcha',
-      kicker:'Ceremonial grade',
-      desc:'Whisked to order from stone-ground matcha, sourced from a single farm in Uji.',
-      image: './assets/matcha.webp',
+      kicker:'First- harvest matcha ',
+      desc:'Matcha shipped from Kyoto, Japan every few weeks.',
+      image: './assets/matcha-4.heic',
       items: [
-        { name:'Usucha', desc:'Thin-whisked ceremonial matcha, hot water', tags:'Grassy · Clean', price:'$6.00' },
-        { name:'Iced Matcha Latte', desc:'Ceremonial matcha, whole milk, light honey', tags:'Creamy · Cool', price:'$7.50' },
-        { name:'Coconut Matcha', desc:'Matcha, coconut cream, toasted coconut flake', tags:'Tropical · Rich', price:'$8.00' },
-        { name:'Matcha Affogato', desc:'Vanilla soft-serve, double matcha shot', tags:'Bitter · Sweet', price:'$9.00' },
+        { name:'Honey Lavender Matcha', desc:'Matcha, Real Honey', tags:'Fresh · Clean', price:'$8.00' },
+        { name:'Strawberry Matcha', desc:'Matcha, Strawberry Puree', tags:'Creamy · Cool', price:'$8.00' },
+        { name:'Salted Maple Vanilla Matcha', desc:'Matcha, Salted Maple', tags:'Salted · Rich', price:'$8.00' },
+        { name:'Blueberry Cream Matcha', desc:'Matcha, Blueberry', tags:'Creamy · Sweet', price:'$8.00' },
       ]
     },
     lemonade: {
       label:'Lemonade',
-      kicker:'Pressed daily',
-      desc:'Cold-pressed citrus, lightly sweetened, built to order over hand-cracked ice.',
-      image: './assets/lemonade.heic',
+      kicker:'Freshly Squeezed Lemonade',
+      desc:'Fresh - squeezed lemons.',
+      image: './assets/lemonade-2.heic',
       items: [
-        { name:'Classic Pressed', desc:'Lemon, cane sugar, sparkling water', tags:'Bright · Fizzy', price:'$5.00' },
-        { name:'Lavender Lemonade', desc:'Lemon, house lavender syrup', tags:'Floral · Calm', price:'$6.00' },
-        { name:'Strawberry Basil', desc:'Muddled strawberry, basil, lemon', tags:'Sweet · Herbal', price:'$6.50' },
-        { name:'Ginger Turmeric', desc:'Fresh ginger, turmeric, lemon, honey', tags:'Spiced · Warm', price:'$6.50' },
+        { name:'Classic Lemonade', desc:'Lemon, Freshly Squeezed', tags:'Bright · Fresh', price:'$7.00' },
+        { name:'Blue Raspberry', desc:'Lemon, Blue Raspberry', tags:'Tropical · Fresh', price:'$8.00' },
+        { name:'Jalapeno Lemonade', desc:'Lemon, Jalapeno', tags:'Spicy · Fresh', price:'$7.50' },
+        { name:'Classic Lemonade with Flavor (Choose a flavor)', desc:'Mango, Cherry, Passionfruit, Pineapple, Raspberry, Strawberry, Rose, Grenadine, Lavender, Blueberry, Cranberry, Coconut, Peppermint', tags:'Tropical · Fresh', price:'$8.50' },
+        { name:'Lotus Energy + Hydration (Lemonade Addition)', desc:'Energy + Hydrate', tags:'Lotus · Hydrate', price:'$3.00' },
+        { name:'Sparkling Seltzer (Lemonade Addition)', desc:'Sparkling Seltzer', tags:'Sparkling', price:'$1.00' },
       ]
     },
     coffee: {
       label:'Coffee',
-      kicker:'Slow brewed',
-      desc:'Single-origin beans, roasted in small batches, brewed to order — no drip machines aboard.',
-      image: './assets/coffee.heic',
+      kicker:'freshly roasted coffee',
+      desc:'Freshly roasted by a local roaster',
+      image: './assets/coffee-3.heic',
       items: [
-        { name:'Pour Over', desc:'Rotating single-origin, brewed to order', tags:'Clean · Bright', price:'$5.00' },
-        { name:'Cortado', desc:'Double espresso, steamed milk, 1:1', tags:'Balanced · Bold', price:'$5.50' },
-        { name:'Sea Salt Cold Brew', desc:'18-hour steep, sea salt cream float', tags:'Smooth · Rich', price:'$6.00' },
-        { name:'Cardamom Latte', desc:'Espresso, steamed milk, house cardamom syrup', tags:'Spiced · Creamy', price:'$6.50' },
+        { name:'Caramel Drizzle Latte', desc:'Caramel', tags:'Caramel Drizzle · Creamy', price:'$7.50' },
+        { name:'Cookie Butter Latte', desc:'Cookie Butter', tags:'Creamy', price:'$7.50' },
+        { name:'Salted Maple Vanilla Latte', desc:'Salted Maple', tags:'Smooth · Salty', price:'$7.50' },
+        { name:'Banana Bread Latte', desc:'Banana', tags:'Fresh · Creamy', price:'$7.50' },
+        
       ]
     }
   };

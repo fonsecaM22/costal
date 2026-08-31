@@ -1,129 +1,111 @@
 {
   "weeks": {
-    "2026-08-16": [
+    "2026-08-30": [
       {
         "dow": "SUN",
-        "date": 16,
-        "mon": "AUG",
-        "name": "Santa Monica Pier",
-        "address": "200 Santa Monica Pier, Santa Monica, CA",
-        "hours": "10:00 AM – 8:00 PM",
-        "note": "Sunset service with live acoustic set"
-      },
-      {
-        "dow": "MON",
-        "date": 17,
-        "mon": "AUG",
-        "name": "Malibu Bluffs Park",
-        "address": "24250 Pacific Coast Hwy, Malibu, CA",
-        "hours": "9:00 AM – 4:00 PM",
-        "note": "Quiet weekday service, dog-friendly patio nearby"
-      },
-      {
-        "dow": "TUE",
-        "date": 18,
-        "mon": "AUG",
-        "name": "Venice Beach Boardwalk",
-        "address": "1800 Ocean Front Walk, Venice, CA",
-        "hours": "10:00 AM – 7:00 PM",
-        "note": "Parked near the skate park, expect a line at lunch"
-      },
-      {
-        "dow": "WED",
-        "date": 19,
-        "mon": "AUG",
-        "name": "Manhattan Beach Pier",
-        "address": "101 Manhattan Beach Blvd, Manhattan Beach, CA",
-        "hours": "9:00 AM – 5:00 PM",
-        "note": "Farmers market day — extra parking two blocks east"
-      },
-      {
-        "dow": "THU",
-        "date": 20,
-        "mon": "AUG",
-        "name": "Redondo Beach Marina",
-        "address": "181 N Harbor Dr, Redondo Beach, CA",
-        "hours": "10:00 AM – 6:00 PM",
-        "note": "Waterfront seating, sunset over the boats"
-      },
-      {
-        "dow": "FRI",
-        "date": 21,
-        "mon": "AUG",
-        "name": "Hermosa Beach Pier",
-        "address": "1 Pier Ave, Hermosa Beach, CA",
-        "hours": "11:00 AM – 9:00 PM",
-        "note": "Late night — after-hours crepes under string lights"
-      },
-      {
-       "dow": "SAT",
-       "date": 22,
-       "mon": "AUG",
-       "closed": true
-      }
-    ],
-
-    "2026-08-23": [
-      {
-        "dow": "SUN",
-        "date": 23,
+        "date": 30,
         "mon": "AUG",
         "closed": true
       },
       {
         "dow": "MON",
-        "date": 24,
+        "date": 31,
         "mon": "AUG",
-        "name": "Keiser University Naples",
-        "address": "3909 Tamiami Trl E, Naples, FL 34112",
-        "hours": "11:00 AM – 1:00 PM",
-        "note": "Morning crepes at the University"
-        
+        "name": "SWELL BY SOLTURA",
+        "address": "26502 Longboard Drive, Bonita Springs",
+        "hours": "9:00 AM – 12:00 PM",
+        "note": "Morning crepes at SWELL"
       },
       {
         "dow": "TUE",
-        "date": 25,
-        "mon": "AUG",
-        "name": "Legacy Gateway Apartments",
-        "address": "10900 Legacy Gateway Cir, Fort Myers, FL 33913",
-        "hours": "5:00 pM – 8:00 PM",
-        "note": "Dinner crepes at Gateway"
+        "date": 1,
+        "mon": "SEP",
+        "closed": true
       },
       {
         "dow": "WED",
-        "date": 26,
-        "mon": "AUG",
+        "date": 2,
+        "mon": "SEP",
         "name": "Gulf Coast Medical Center",
-        "address": "13681 Doctors Way, Fort Myers, FL 33912",
+        "address": "13681 Doctors Way, Fort Myers",
         "hours": "7:00 AM – 10:00 AM",
         "note": "Morning crepes at Medical Center"
       },
       {
         "dow": "THU",
-        "date": 27,
-        "mon": "AUG",
-        "name": "Marea Apartments",
-        "address": "3350 Putney Ct, Naples, FL 34112",
-        "hours": "8:00 AM – 11:00 AM",
-        "note": "Morning crepes at Marea"
+        "date": 3,
+        "mon": "SEP",
+        "name": "10x Addison Place",
+        "address": "8633 Addison Pl Cir, Naples",
+        "hours": "4:00 PM – 8:00 PM",
+        "note": "Dinner crepes at 10X Addison Place"
       },
       {
         "dow": "FRI",
-        "date": 28,
-        "mon": "AUG",
-         "name": "Keiser University Naples",
-        "address": "3909 Tamiami Trl E, Naples, FL 34112",
+        "date": 4,
+        "mon": "SEP",
+        "name": "Keiser University Naples",
+        "address": "3909 Tamiami Trl E, Naples",
         "hours": "11:00 AM – 1:00 PM",
-        "note": "Morning crepes at the University"
+        "note": "Lunch crepes at the University"
+      },
+      {
+       "dow": "SAT",
+       "date": 5,
+       "mon": "SEP",
+       "name":"Fort Myers Farmers Market",
+       "address":"2200 First St, Fort Myers, FL 33901",
+       "hours":"9:00 AM – 1:00 PM",
+       "note":"Crepes and Coffee at FM Farmers Market"
+      }
+    ],
+
+    "2026-09-06": [
+      {
+        "dow": "SUN",
+        "date": 6,
+        "mon": "SEP",
+        "name": "Gulf Coast Medical Center",
+        "address": "13681 Doctors Way, Fort Myers",
+        "hours": "9:00 PM – 1:00 AM",
+        "note": "Crepes and Coffee for a late night snack"
+      },
+      {
+        "dow": "MON",
+        "date": 7,
+        "mon": "SEP",
+        "closed":true
+        
+      },
+      {
+        "dow": "TUE",
+        "date": 8,
+        "mon": "SEP",
+        "closed":true
+      },
+      {
+       "dow": "WED",
+        "date": 8,
+        "mon": "SEP",
+        "closed":true
+      },
+      {
+        "dow": "THU",
+        "date": 9,
+        "mon": "SEP",
+        "closed":true
+      },
+      {
+        "dow": "FRI",
+        "date": 10,
+        "mon": "SEP",
+        "closed":true
       },
       {
         "dow": "SAT",
-        "date": 29,
-        "mon": "AUG",
-        "name": "Fort Myers Farmers Market",
-        "address": "2200 First St, Fort Myers, FL 33901",
-        "hours": "9:00 AM – 1:00 PM",
-        "note": "Crepes and Coffee at FM Farmers Market"
+        "date": 11,
+        "mon": "SEP",
+        "closed":true
       }
     ]
   }
