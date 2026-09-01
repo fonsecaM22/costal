@@ -124,11 +124,17 @@ function getActiveLocation(stop) {
   if (isWithinRange(nowMin, secondRange.start, secondRange.end)) return second;
   if (isWithinRange(nowMin, primaryRange.start, primaryRange.end)) return primary;
 
-  // Neither window is open right now — show whichever comes up next.
-  const untilPrimary = minutesUntil(nowMin, primaryRange.start);
-  const untilSecond = minutesUntil(nowMin, secondRange.start);
+  const primaryIsFirst = primaryRange.start <= secondRange.start;
+  const firstLoc = primaryIsFirst ? primary : second;
+  const firstRange = primaryIsFirst ? primaryRange : secondRange;
+  const lastLoc = primaryIsFirst ? second : primary;
+  const lastRange = primaryIsFirst ? secondRange : primaryRange;
 
-  return untilSecond < untilPrimary ? second : primary;
+  if (nowMin < firstRange.start) {
+    return firstLoc;
+  }
+
+  return lastLoc;
 }
 
 function updateTodayCard(){
@@ -260,7 +266,7 @@ setInterval(() => {
   // ---- Menu ----
   const menu = {
     crepes: {
-      label: 'Crepes',
+      label: 'Sweet Crepes',
       kicker: 'From the Krampouz griddle',
       desc: 'Full crepes, not garnish. If it’s a strawberry crepe, you get a real amount of berries — not three pieces for the photo.',
       image: './assets/berry_bliss.webp' ,
@@ -268,9 +274,18 @@ setInterval(() => {
         { name:'The Berry Bliss', desc:'Nutella, Fresh Berries, Dark Chocolate', tags:'Sweet', price:'$13.00', image:'./assets/berry_bliss.webp' },
         { name:'Coco Bliss', desc:'Condensed Milk, Berries, Coconut Shavings, Chocolate Drizzle', tags:'Sweet', price:'$12.00', image:'./assets/coco.webp' },
         { name:'Nutella Banana', desc:'Nutella, Bananas, Chocolate Drizzles', tags:'Sweet', price:'$11.00',image:'./assets/banana_nutella.webp'  },
-        { name:'The Fifth Ave Steak', desc:'Grilled Tri-Tip Steak, Cheese, Tomatoes, Marinated Onion and Spring Mix', tags:'House-Made Signature Sauce · Crafted Daily', price:'$8.00' },
-        { name:'Naples Sunset Shrimp', desc:'Grilled Shrimp, Cheese, Arugula, Onion and Spring Mix', tags:'House-Made Signature Sauce · Crafted Daily', price:'$17.00' },
-        { name:'Gulf Coast Chicken & Mushrooms', desc:'Grilled Chicken, Sauteed Mushrooms, Spring Mix, Cheese, Tomatoes and Onion', tags:'House-Made Signature Sauce · Crafted Daily', price:'$16.00' }, 
+         
+      ]
+    },
+     savory_crepes: {
+      label: 'Savory Crepes',
+      kicker: 'From the Krampouz griddle',
+      desc: 'Full crepes, not garnish. If it’s a strawberry crepe, you get a real amount of berries — not three pieces for the photo.',
+      image: './assets/fifth_steak.png' ,
+      items: [
+        { name:'The Fifth Ave Steak', desc:'Grilled Tri-Tip Steak, Cheese, Tomatoes, Marinated Onion and Spring Mix', tags:'House-Made Signature Sauce · Crafted Daily', price:'$8.00', image:'./assets/fifth_steak.png' },
+        { name:'Naples Sunset Shrimp', desc:'Grilled Shrimp, Cheese, Arugula, Onion and Spring Mix', tags:'House-Made Signature Sauce · Crafted Daily', price:'$17.00', image:'./assets/shrimp.png' },
+        { name:'Gulf Coast Chicken & Mushrooms', desc:'Grilled Chicken, Sauteed Mushrooms, Spring Mix, Cheese, Tomatoes and Onion', tags:'House-Made Signature Sauce · Crafted Daily', price:'$16.00', image:'./assets/coast_chicken.png' },
       ]
     },
     

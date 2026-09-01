@@ -368,7 +368,7 @@
     .day__strip{grid-template-columns:repeat(3,1fr);}
     .main__title{font-size: 3rem;}
     .eyebrow{
-      font-size: 10px;
+      font-size: 8px;
     }
     .logo{
       width: 70px;
