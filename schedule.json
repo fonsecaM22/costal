@@ -42,7 +42,7 @@
             "address": "3909 Tamiami Trl E, Naples",
              "hours": "11:30 AM – 1:30 PM",
              "note": "Lunch crepes at the University"
-  }
+      }
       },
       {
         "dow": "THU",
@@ -102,29 +102,47 @@
         "mon": "SEP",
         "closed":true
       },
-      {
-       "dow": "WED",
+       {
+        "dow": "WED",
         "date": 9,
         "mon": "SEP",
-        "closed":true
+        "name": "Gulf Coast Medical Center",
+        "address": "13681 Doctors Way, Fort Myers",
+        "hours": "7:00 AM – 10:00 AM",
+        "note": "Morning crepes at Medical Center", 
+        "secondLocation": {
+            "name": "Keiser University Naples",
+            "address": "3909 Tamiami Trl E, Naples",
+             "hours": "11:30 AM – 2:00 PM",
+             "note": "Brunch crepes at the University"
+      }
       },
       {
         "dow": "THU",
         "date": 10,
         "mon": "SEP",
-        "closed":true
+        "name": "10x Iona Lakes Apartements",
+        "address": "15000 Iona Lakes Dr, Fort Myers",
+        "hours": "5:00 PM – 8:00 PM",
+        "note": "Dinner crepes at 10X Iona Lakes Apartements"
       },
       {
         "dow": "FRI",
         "date": 11,
         "mon": "SEP",
-        "closed":true
+        "name": "Colonial Commons Apartments",
+        "address": "4590 Winkler Ave, Fort Myers",
+        "hours": "5:00 PM – 8:00 PM",
+        "note": "Dinner crepes at Colonial Commons Apartments"
       },
       {
         "dow": "SAT",
         "date": 12,
         "mon": "SEP",
-        "closed":true
+        "name":"Fort Myers Farmers Market",
+        "address":"2200 First St, Fort Myers, FL 33901",
+        "hours":"9:00 AM – 1:00 PM",
+        "note":"Crepes and Coffee at FM Farmers Market"
       }
     ]
   }
