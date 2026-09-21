@@ -1,33 +1,36 @@
 {
   "weeks": {
-    "2026-09-13": [
+    "2026-09-27": [
       {
         "dow": "SUN",
-        "date": 13,
+        "date": 27,
+        "mon": "SEP",
+        "name": "Springs at Hammock Cove Apartments",
+        "address": "4360 Petal Dr, Naples",
+        "hours": "10:00 AM – 1:00 PM",
+        "note": "Morning crepes at Hammock Cove Apartments",
+        "secondLocation": {
+            "name": "Gulf Coast Medical Center",
+            "address": "13681 Doctors Way, Fort Myers",
+             "hours": "9:00 PM – 1:00 AM",
+             "note": "Overnight crepes at Medical Center"
+      }
+      },
+      {
+        "dow": "MON",
+        "date": 28,
         "mon": "SEP",
         "closed": true
       },
       {
-        "dow": "MON",
-        "date": 14,
-        "mon": "SEP",
-        "name": "The Reef Student Living",
-        "address": "10121 Shephard St, Fort Myers",
-        "hours": "4:00 PM – 7:00 PM",
-        "note": "Students get ready for Crepes!!"
-      },
-      {
         "dow": "TUE",
-        "date": 15,
+        "date": 29,
         "mon": "SEP",
-        "name": "Inspira Apartments",
-        "address": "7425 Inspira Cir, Naples",
-        "hours":"5:00 PM – 8:00 PM",
-        "note": "Dinner crepes at Inspira"
+        "closed": true
       },
       {
         "dow": "WED",
-        "date": 16,
+        "date": 30,
         "mon": "SEP",
         "name": "Gulf Coast Medical Center",
         "address": "13681 Doctors Way, Fort Myers",
@@ -39,39 +42,31 @@
              "hours": "11:30 AM – 2:00 PM",
              "note": "Lunch crepes at the University",
               "secondLocation" :{
-          "name": "Magnolia Square",
-            "address": "5934 Premier Way, Naples",
-             "hours": "5:00 PM – 8:00 PM",
-             "note": "Dinner crepes at Magnolia"
+          "name": "River Reach",
+            "address": "2000 River Reach Dr, Naples",
+             "hours": "4:00 PM – 8:00 PM",
+             "note": "Dinner crepes at River Reach"
         }
       }
     },
       {
         "dow": "THU",
-        "date": 17,
-        "mon": "SEP",
-        "name": "10x Addison Place",
-        "address": "8633 Addison Pl Cir, Naples",
-        "hours": "4:00 PM – 8:00 PM",
-        "note": "Dinner crepes at 10X Addison Place"
+        "date": 1,
+        "mon": "OCT",
+        "closed": true
       },
       {
         "dow": "FRI",
-        "date": 18,
-        "mon": "SEP",
-        "name": "Summit Pl Cir",
-        "address": "Summit Pl Cir",
-        "hours": "2:00 PM – 5:00 PM",
-        "note": "Afternoon snack at Summit. Crepes!! "
+        "date": 2,
+        "mon": "OCT",
+        "closed": true
+        
       },
       {
        "dow": "SAT",
-       "date": 19,
-       "mon": "SEP",
-       "name":"Fort Myers Farmers Market",
-       "address":"2200 First St, Fort Myers, FL 33901",
-       "hours":"9:00 AM – 1:00 PM",
-       "note":"Crepes and Coffee at FM Farmers Market"
+       "date": 3,
+       "mon": "OCT",
+       "closed": true
       }
     ],
 
@@ -107,29 +102,29 @@
         "hours": "7:00 AM – 10:00 AM",
         "note": "Morning crepes at Medical Center", 
         "secondLocation": {
-            "name": "Keiser University Naples",
-            "address": "3909 Tamiami Trl E, Naples",
-             "hours": "11:30 AM – 2:00 PM",
-             "note": "Brunch crepes at the University"
+            "name": "Argos by Soltura",
+            "address": "4220 Coasterra Dr, Fort Myers",
+             "hours": "10:30 AM – 1:00 PM",
+             "note": "Brunch crepes at Argos"
       }
       },
       {
         "dow": "THU",
         "date": 24,
         "mon": "SEP",
-        "name": "10x Iona Lakes Apartements",
-        "address": "15000 Iona Lakes Dr, Fort Myers",
+        "name": "Lago Apartments",
+        "address": "10200 Sweetgrass Cir, Naples",
         "hours": "5:00 PM – 8:00 PM",
-        "note": "Dinner crepes at 10X Iona Lakes Apartements"
+        "note": "Dinner crepes at Lago Apartements"
       },
       {
         "dow": "FRI",
         "date": 25,
         "mon": "SEP",
-        "name": "Colonial Commons Apartments",
-        "address": "4590 Winkler Ave, Fort Myers",
+        "name": "Laurel Lakes Blvd",
+        "address": "Laurel Lakes Blvd",
         "hours": "5:00 PM – 8:00 PM",
-        "note": "Dinner crepes at Colonial Commons Apartments"
+        "note": "Dinner crepes at Laurel Lakes Blvd"
       },
       {
         "dow": "SAT",
