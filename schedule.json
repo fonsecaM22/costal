@@ -82,66 +82,51 @@
       }
     ],
 
-    "2026-09-20": [
+    "2026-10-04": [
       {
         "dow": "SUN",
-        "date": 20,
-        "mon": "SEP",
-        "name": "Recreation Ln",
-        "address": "Recreation Ln",
-        "hours": "9:00 PM – 1:00 AM",
-        "note": "Morning crepes at Recreation Ln"
+        "date": 4,
+        "mon": "OCT",
+        "name": "Santini Farmers Market",
+        "address": "7205 Estero Blvd, Fort Myers Beach",
+        "hours": "9:00 AM – 1:00 PM",
+        "note": "Crepes and Coffee at Santini Farmers Market"
       },
       {
         "dow": "MON",
-        "date": 21,
-        "mon": "SEP",
+        "date": 5,
+        "mon": "OCT",
         "closed":true
         
       },
       {
         "dow": "TUE",
-        "date": 22,
-        "mon": "SEP",
+        "date": 6,
+        "mon": "OCT",
         "closed":true
       },
        {
         "dow": "WED",
-        "date": 23,
-        "mon": "SEP",
-        "name": "Gulf Coast Medical Center",
-        "address": "13681 Doctors Way, Fort Myers",
-        "hours": "7:00 AM – 10:00 AM",
-        "note": "Morning crepes at Medical Center", 
-        "secondLocation": {
-            "name": "Argos by Soltura",
-            "address": "4220 Coasterra Dr, Fort Myers",
-             "hours": "10:30 AM – 1:00 PM",
-             "note": "Brunch crepes at Argos"
-      }
+        "date": 7,
+        "mon": "OCT",
+        "closed":true
       },
       {
         "dow": "THU",
-        "date": 24,
-        "mon": "SEP",
-        "name": "Lago Apartments",
-        "address": "10200 Sweetgrass Cir, Naples",
-        "hours": "5:00 PM – 8:00 PM",
-        "note": "Dinner crepes at Lago Apartements"
+        "date": 8,
+        "mon": "OCT",
+        "closed":true
       },
       {
         "dow": "FRI",
-        "date": 25,
-        "mon": "SEP",
-        "name": "Laurel Lakes Blvd",
-        "address": "Laurel Lakes Blvd",
-        "hours": "5:00 PM – 8:00 PM",
-        "note": "Dinner crepes at Laurel Lakes Blvd"
+        "date": 9,
+        "mon": "OCT",
+        "closed":true
       },
       {
         "dow": "SAT",
-        "date": 26,
-        "mon": "SEP",
+        "date": 10,
+        "mon": "OCT",
         "name":"Fort Myers Farmers Market",
         "address":"2200 First St, Fort Myers, FL 33901",
         "hours":"9:00 AM – 1:00 PM",
