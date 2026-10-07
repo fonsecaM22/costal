@@ -109,19 +109,51 @@
         "dow": "WED",
         "date": 7,
         "mon": "OCT",
-        "closed":true
+        "name":"Gulf Coast Medical Center",
+        "address":"13681 Doctors Way, Fort Myers",
+        "hours":"7:00 AM – 10:00 AM",
+        "note":"Morning crepes at Medical Center",
+        "secondLocation": {
+            "name": "Keiser University Naples",
+            "address": "3909 Tamiami Trl E, Naples",
+             "hours": "11:30 AM – 2:00 PM",
+             "note": "Lunch crepes at the University",
+              "secondLocation" :{
+          "name": "Keiser University Farmers Market",
+            "address": "3909 Tamiami Trl E, Naples",
+             "hours": "4:00 PM – 7:00 PM",
+             "note": "Afternoon crepes at Keiser University Farmers Market"
+      }}
       },
       {
         "dow": "THU",
         "date": 8,
         "mon": "OCT",
-        "closed":true
+        "name": "Coconut Point Farmers Market",
+        "address":"23100 Fashion Dr, Estero, FL 33928",
+        "hours":"9:00 AM – 1:00 PM",
+        "note":"Crepes and Coffee at Coconut Point Farmers Market",
+        "secondLocation": {
+            "name": "Marea Apartments",
+            "address": "3350 Putney Ct, Naples",
+             "hours": "5:00 PM – 8:00 PM",
+             "note": "Dinner crepes at Marea Apartments"
+        }
       },
       {
         "dow": "FRI",
         "date": 9,
         "mon": "OCT",
-        "closed":true
+        "name":"Venture Church Farmers Market",
+        "address":"14601 Tamiami Trl E, Naples",
+        "hours":"8:00 AM – 1:00 PM",
+        "note":"Morning crepes at Venture Church Farmers Market",
+        "secondLocation": {
+            "name": "Eagle's Nest Beach Resort, a Hilton Grand Vacations Club",
+            "address": "410 S Collier Blvd, Marco Island",
+             "hours": "5:00 PM – 8:00 PM",
+             "note": "Dinner crepes at Eagles Nest Beach Resort"
+        }
       },
       {
         "dow": "SAT",
