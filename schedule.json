@@ -1,71 +1,55 @@
 {
   "weeks": {
-    "2026-10-11": [
+    "2026-10-25": [
       {
         "dow": "SUN",
-        "date": 11,
+        "date": 25,
         "mon": "SEP",
         "closed":true
       },
       {
         "dow": "MON",
-        "date": 12,
+        "date": 26,
+        "mon": "SEP",
+        "name": "Keiser University Fort Myers",
+        "address": "9100 Forum Corporate Pkwy, Fort Myers",
+        "hours": "10:00 AM – 1:00 PM",
+        "note": "Morning crepes at Keiser University Fort Myers."
+      },
+      {
+        "dow": "TUE",
+        "date": 27,
         "mon": "SEP",
         "closed": true
       },
       {
-        "dow": "TUE",
-        "date": 13,
-        "mon": "SEP",
-        "name": "The Reef Student Living",
-        "address": "10121 Shephard St, Fort Myers",
-        "hours":"4:00 PM – 7:00 PM",
-        "note": "Dinner crepes at The Reef"
-      },
-      {
         "dow": "WED",
-        "date": 14,
+        "date": 28,
         "mon": "SEP",
-        "name": "Keiser University Naples",
-        "address":"3909 Tamiami Trl E, Naples",
-        "hours": "11:00 AM – 1:00 PM",
-        "note": "Lunch crepes at the University",
-        "secondLocation":{
-          "name": "River Reach",
-          "address": "2000 River Reach Dr, Naples",
-          "hours": "5:00 PM – 8:00 PM",
-          "note": "Dinner crepes at the Reach"
-        }
+        "name": "Fiori Apartments",
+        "address":"8552 Collier Blvd, Naples",
+        "hours": "4:00 PM – 7:00 PM",
+        "note": "Dinner crepes at Fiori"
         
     },
       {
         "dow": "THU",
-        "date": 15,
+        "date": 29,
         "mon": "OCT",
-        "name": "10X Addison Place",
-        "address": "8633 Addison Pl Cir, Naples",
-        "hours":"4:00 PM – 7:00 PM",
-        "note": "Dinner crepes at Addison Place"
+        "closed": true
       },
       {
         "dow": "FRI",
-        "date": 16,
+        "date": 30,
         "mon": "OCT",
-        "name": "Porsche Fort Myers",
-        "address": "10040 Daniels Interstate Ct, Fort Myers",
-        "hours": "11:30 AM – 1:00 PM",
-        "note": "Crepes and Cars at Porsche Fort Myers", 
-        "secondLocation": {
-            "name": "The Pearl at Founders Square",
-            "address": "8820 Walter Wy, Naples",
-             "hours": "5:00 PM – 8:00 PM",
-             "note": "Dinner crepes at Founders Square"
-        }
-        
+        "name": "Venture Church Farmers Market",
+        "address": "114601 Tamiami Trl E, Naples",
+        "hours": "8:00 AM – 1:00 PM",
+        "note": "Crepes and Coffee at Venture Church Farmers Market"
       },
       {
        "dow": "SAT",
-       "date": "17",
+       "date": "31",
        "mon": "OCT",
         "name": "Fort Myers Farmers Market",
         "address": "2200 First St, Fort Myers, FL 33901",
@@ -74,79 +58,58 @@
       }
     ],
 
-    "2026-10-18": [
+    "2026-11-01": [
       {
         "dow": "SUN",
-        "date": 18,
+        "date": 1,
         "mon": "OCT",
-        "name": "Eagle's Nest Beach Resort, a Hilton Grand Vacations Club",
-        "address": "410 S Collier Blvd, Marco Island",
+        "name": "Island Walk Naples Florida Real Estate Group",
+        "address": "Islandwalk Cir, Naples",
         "hours": "9:00 AM – 1:00 PM",
-        "note": "Crepes and Coffee at Eagle's Nest Beach Resort"
+        "note": "Morning crepes at Island Walk"
       },
       {
         "dow": "MON",
-        "date": 19,
+        "date": 2,
         "mon": "OCT",
         "closed":true
         
       },
       {
         "dow": "TUE",
-        "date": 20,
+        "date": 3,
         "mon": "OCT",
-        "name": "Orange Blossom Ranch",
-        "address": "2414 Orchard St, Naples",
+        "name": "Bridgewater Bay Blvd",
+        "address": "2Bridgewater Bay Blvd, Naples",
         "hours":"4:30 PM – 7:30 PM",
-        "note": "Dinner crepes at Orange Blossom Ranch"
+        "note": "Dinner crepes at Bridgewater Bay"
       },
        {
         "dow": "WED",
-        "date": 21,
+        "date": 4,
         "mon": "OCT",
-        "name":"Springs at Hammock Cove Apartments",
-        "address":"4360 Petal Dr, Naples",
-        "hours":"5:00 PM – 8:00 PM",
-        "note":"Dinner crepes at Hammock Cove Apartments"
+        "closed": true 
       },
       {
         "dow": "THU",
-        "date": 22,
+        "date": 5,
         "mon": "OCT",
-        "name": "Gulf Coast Medical Center",
-        "address": "13681 Doctors Way, Fort Myers",
-        "hours":"9:00 AM – 1:00 PM",
-        "note":"Crepes and Coffee at Medical Center"
+        "closed": true
       },
       {
         "dow": "FRI",
-        "date": 23,
+        "date": 6,
         "mon": "OCT",
-        "name":"Venture Church Farmers Market",
-        "address":"14601 Tamiami Trl E, Naples",
-        "hours":"8:00 AM – 1:00 PM",
-        "note":"Morning crepes at Venture Church Farmers Market",
-        "secondLocation": {
-            "name": "RiverCreek",
-            "address": "12776 Springbrook Ct, Estero",
-             "hours": "5:00 PM – 8:00 PM",
-             "note": "Dinner crepes at RiverCreek"
-        }
+        "closed": true
       },
       {
         "dow": "SAT",
-        "date": 24,
+        "date": 7,
         "mon": "OCT",
         "name":"Fort Myers Farmers Market",
         "address":"2200 First St, Fort Myers, FL 33901",
         "hours":"9:00 AM – 1:00 PM",
-        "note":"Crepes and Coffee at FM Farmers Market",
-        "secondLocation": {
-           "name": "Magnolia Square",
-           "address": "5934 Premier Way, Naples",
-           "hours": "5:00 PM – 8:00 PM",
-           "note": "Dinner crepes at Magnolia Square"
-        }
+        "note":"Crepes and Coffee at FM Farmers Market"
       }
     ]
   }
