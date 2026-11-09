@@ -39,7 +39,10 @@
         "dow": "THU",
         "date": 12,
         "mon": "NOV",
-        "closed": true
+        "name": "10X Addison Place",
+        "address": "8633 Addison Pl Cir, Naples",
+        "hours":"4:00 PM – 7:00 PM",
+        "note": "Dinner crepes at 10X Addison Place"
       },
       {
         "dow": "FRI",
@@ -48,7 +51,13 @@
         "name": "Venture Church Farmers Market",
         "address": "114601 Tamiami Trl E, Naples",
         "hours": "8:00 AM – 1:00 PM",
-        "note": "Crepes and Coffee at Venture Church Farmers Market"
+        "note": "Crepes and Coffee at Venture Church Farmers Market",
+        "second location": {
+          "name": "Naples 701",
+          "address": "3531 Plantation Way, Naples",
+          "hours": "4:00 PM – 7:00 PM",
+          "note": "Dinner crepes at Naples 701"
+        }
       },
       {
        "dow": "SAT",
@@ -64,7 +73,7 @@
     "2026-11-01": [
       {
         "dow": "SUN",
-        "date": 1,
+        "date": 15,
         "mon": "Nov",
         "name": "Island Walk Naples Florida Real Estate Group",
         "address": "Islandwalk Cir, Naples",
@@ -73,14 +82,14 @@
       },
       {
         "dow": "MON",
-        "date": 2,
+        "date": 16,
         "mon": "Nov",
         "closed":true
         
       },
       {
         "dow": "TUE",
-        "date": 3,
+        "date": 17,
         "mon": "Nov",
         "name": "Bridgewater Bay Blvd",
         "address": "2Bridgewater Bay Blvd, Naples",
@@ -89,7 +98,7 @@
       },
        {
         "dow": "WED",
-        "date": 4,
+        "date": 18,
         "mon": "Nov",
         "name": "Gulf Coast Medical Center",
         "address": "13681 Doctors Way, Fort Myers",
@@ -110,7 +119,7 @@
       },
       {
         "dow": "THU",
-        "date": 5,
+        "date": 19,
         "mon": "Nov",
         "name": "Vintage Naples",
         "address": "13641 Winchester Trl, Naples",
@@ -125,7 +134,7 @@
       },
       {
         "dow": "FRI",
-        "date": 6,
+        "date": 20,
         "mon": "Nov",
         "name": "Venture Church Farmers Market",
         "address": "14601 Tamiami Trl E, Naples",
@@ -134,7 +143,7 @@
       },
       {
         "dow": "SAT",
-        "date": 7,
+        "date": 21,
         "mon": "Nov",
         "name":"Fort Myers Farmers Market",
         "address":"2200 First St, Fort Myers, FL 33901",
