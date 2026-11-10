@@ -29,10 +29,7 @@
         "dow": "WED",
         "date": 11,
         "mon": "Nov",
-        "name": "Fiori Apartments",
-        "address":"8552 Collier Blvd, Naples",
-        "hours": "4:00 PM – 7:00 PM",
-        "note": "Dinner crepes at Fiori"
+        "closed": true
         
     },
       {

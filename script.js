@@ -263,6 +263,7 @@ setInterval(() => {
   updatePanel();
 }, 60 * 1000);
 
+
   // ---- Menu ----
   const menu = {
     crepes: {
@@ -274,6 +275,7 @@ setInterval(() => {
         { name:'The Berry Bliss', desc:'Nutella, Fresh Berries, Dark Chocolate', tags:'Sweet', price:'$13.00', image:'./assets/berry_bliss.webp' },
         { name:'Coco Bliss', desc:'Condensed Milk, Berries, Coconut Shavings, Chocolate Drizzle', tags:'Sweet', price:'$12.00', image:'./assets/coco.webp' },
         { name:'Nutella Banana', desc:'Nutella, Bananas, Chocolate Drizzles', tags:'Sweet', price:'$11.00',image:'./assets/banana_nutella.webp'  },
+        { name:'Campfire Smores', desc:'Nutella, Graham Crackers, Marshmallows', tags:'Sweet', price:'$12.00', image:'./assets/smores.heic'  },
          
       ]
     },
@@ -283,8 +285,9 @@ setInterval(() => {
       desc: 'Full crepes, not garnish. If it’s a strawberry crepe, you get a real amount of berries — not three pieces for the photo.',
       image: './assets/fifth_steak.png' ,
       items: [
-        { name:'The Fifth Ave Steak', desc:'Grilled Tri-Tip Steak, Cheese, Tomatoes, Marinated Onion and Spring Mix', tags:'House-Made Signature Sauce · Crafted Daily', price:'$8.00', image:'./assets/fifth_steak.png' },
+        { name:'The Fifth Ave Steak', desc:'Grilled Tri-Tip Steak, Cheese, Tomatoes, Marinated Onion and Spring Mix', tags:'House-Made Signature Sauce · Crafted Daily', price:'$18.00', image:'./assets/fifth_steak.png' },
         { name:'Naples Sunset Shrimp', desc:'Grilled Shrimp, Cheese, Arugula, Onion and Spring Mix', tags:'House-Made Signature Sauce · Crafted Daily', price:'$17.00', image:'./assets/shrimp.png' },
+        { name:'Capri Sun', desc:'Fresh Mozzarella, Tomatoes, Basil, Pesto Sauce, Arugula', tags:'House-Made Signature Sauce · Crafted Daily', price:'$14.00', image:'./assets/capri_sun.png' },
         { name:'Gulf Coast Chicken & Mushrooms', desc:'Grilled Chicken, Sauteed Mushrooms, Spring Mix, Cheese, Tomatoes and Onion', tags:'House-Made Signature Sauce · Crafted Daily', price:'$16.00', image:'./assets/coast_chicken.png' },
       ]
     },
@@ -295,8 +298,9 @@ setInterval(() => {
       desc:'Matcha shipped from Kyoto, Japan every few weeks.',
       image: './assets/matcha.webp',
       items: [
-        { name:'Iced Matcha', desc:'First-harvest Matcha ', tags:'Fresh', price:'$8.00', image:'./assets/matcha.webp' },
+        { name:'Iced Matcha', desc:'First-harvest Matcha ', tags:'Fresh', price:'$7.00', image:'./assets/matcha.webp' },
         { name:'Honey Lavender Matcha', desc:'Matcha, Real Honey', tags:'Fresh · Clean', price:'$8.00', image:'./assets/honey_matcha.webp' },
+        { name:'Islamorada Matcha', desc:'Mango + Guava', tags:'Creamy · Sweet', price:'$8.00', image:'./assets/islamorada_matcha.jpg' },
         { name:'Strawberry Matcha', desc:'Matcha, Strawberry Puree', tags:'Creamy · Cool', price:'$8.00' },
         { name:'Salted Maple Vanilla Matcha', desc:'Matcha, Salted Maple', tags:'Salted · Rich', price:'$8.00' },
         { name:'Blueberry Cream Matcha', desc:'Matcha, Blueberry', tags:'Creamy · Sweet', price:'$8.00' },
@@ -359,6 +363,8 @@ setInterval(() => {
 
   function renderMenuPanel(){
     const cat = menu[activeCategory];
+    menuImage.loading = 'eager';
+    menuImage.decoding = 'async';
     menuImage.src = cat.image;
     menuImage.alt = cat.label + ' at Coastal Créperie';
     menuKicker.textContent = cat.kicker.toUpperCase();
