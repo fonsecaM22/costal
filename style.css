@@ -738,25 +738,12 @@
   .package h3{
     font-size:1.7rem;
     color:#0793a5;
-    margin:10px 0 8px;
+    margin:0 0 8px;
   }
   .package p{
     color:var(--ink);
     font-size:.92rem;
     line-height:1.6;
-  }
-  .package__price{
-    font-family:'Cormorant Garamond', serif;
-    font-size:2.4rem;
-    color:var(--navy-deep);
-    line-height:1;
-  }
-  .package__price span{
-    font-family:'Jost',sans-serif;
-    font-size:.68rem;
-    letter-spacing:1.5px;
-    color:var(--muted);
-    text-transform:uppercase;
   }
   .events__actions{
     display:flex;
