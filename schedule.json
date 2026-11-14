@@ -30,26 +30,25 @@
         "date": 11,
         "mon": "Nov",
         "closed": true
-        
-    },
+      },
       {
         "dow": "THU",
         "date": 12,
-        "mon": "NOV",
+        "mon": "Nov",
         "name": "10X Addison Place",
         "address": "8633 Addison Pl Cir, Naples",
-        "hours":"4:00 PM – 7:00 PM",
+        "hours": "4:00 PM – 7:00 PM",
         "note": "Dinner crepes at 10X Addison Place"
       },
       {
         "dow": "FRI",
         "date": 13,
-        "mon": "NOV",
+        "mon": "Nov",
         "name": "Venture Church Farmers Market",
-        "address": "114601 Tamiami Trl E, Naples",
+        "address": "14601 Tamiami Trl E, Naples",
         "hours": "8:00 AM – 1:00 PM",
         "note": "Crepes and Coffee at Venture Church Farmers Market",
-        "second location": {
+        "secondLocation": {
           "name": "Naples 701",
           "address": "3531 Plantation Way, Naples",
           "hours": "4:00 PM – 7:00 PM",
@@ -57,43 +56,44 @@
         }
       },
       {
-       "dow": "SAT",
-       "date": 14,
-       "mon": "NOV",
+        "dow": "SAT",
+        "date": 14,
+        "mon": "Nov",
         "name": "Fort Myers Farmers Market",
-        "address": "2200 First St, Fort Myers, FL 33901",
+        "address": "2149 First St, Fort Myers",
         "hours": "9:00 AM – 1:00 PM",
         "note": "Crepes and Coffee at FM Farmers Market"
       }
     ],
-
-    "2026-11-01": [
+    "2026-11-15": [
       {
         "dow": "SUN",
         "date": 15,
         "mon": "Nov",
-        "name": "Island Walk Naples Florida Real Estate Group",
-        "address": "Islandwalk Cir, Naples",
+        "name": "Eagle's Nest Beach Resort, a Hilton Grand Vacations Club",
+        "address": "410 S Collier Blvd, Marco Island",
         "hours": "9:00 AM – 1:00 PM",
-        "note": "Morning crepes at Island Walk"
+        "note": "Morning crepes at Eagle's Nest Beach Resort, a Hilton Grand Vacations Club"
       },
       {
         "dow": "MON",
         "date": 16,
         "mon": "Nov",
-        "closed":true
-        
+        "name": "Verdana Village",
+        "address": "20104 Napa Loop, Estero",
+        "hours": "5:00 PM – 8:00 PM",
+        "note": "Dinner crepes at Verdana Village"
       },
       {
         "dow": "TUE",
         "date": 17,
         "mon": "Nov",
-        "name": "Bridgewater Bay Blvd",
-        "address": "2Bridgewater Bay Blvd, Naples",
-        "hours":"4:30 PM – 7:30 PM",
-        "note": "Dinner crepes at Bridgewater Bay"
+        "name": "Mark Lane Apartments",
+        "address": "15500 Mark Ln, Naples",
+        "hours": "5:00 PM – 8:00 PM",
+        "note": "Dinner crepes at Mark Lane Apartments"
       },
-       {
+      {
         "dow": "WED",
         "date": 18,
         "mon": "Nov",
@@ -101,33 +101,21 @@
         "address": "13681 Doctors Way, Fort Myers",
         "hours": "7:00 AM – 10:00 AM",
         "note": "Crepes and Coffee at Gulf Coast Medical Center",
-        "second location": {
-          "name": "Altair by Soltura",
-          "address": "9145 Flying Eagle Dr, Fort Myers",
-          "hours": "11:00 AM – 1:00 PM",
-          "note": "Lunch crepes at Altair by Soltura",
-          "second location": {
-            "name": "Keiser University Naples Farmers Market",
-            "address": "3909 Tamiami Trl E, Naples",
-            "hours": "4:00 PM – 7:00 PM",
-            "note": "Dinner crepes at Keiser University Naples Farmers Market"
-          }
+        "secondLocation": {
+          "name": "Inspira Apartments",
+          "address": "7425 Inspira Cir, Naples",
+          "hours": "5:00 PM – 8:00 PM",
+          "note": "Dinner crepes at Inspira Apartments"
         }
       },
       {
         "dow": "THU",
         "date": 19,
         "mon": "Nov",
-        "name": "Vintage Naples",
-        "address": "13641 Winchester Trl, Naples",
-        "hours": "11:30 AM – 2:00 PM",
-        "note": "Brunch with us at Vintage Naples",
-        "second location": {
-          "name": "Hammock Park",
-          "address": "8150 Rattlesnake Hammock Rd, Naples",
-          "hours": "5:00 PM – 8:00 PM",
-          "note": "Dinner crepes at Hammock Park"
-        }
+        "name": "Lago Apartments",
+        "address": "10200 Sweetgrass Cir, Naples",
+        "hours": "5:00 PM – 8:00 PM",
+        "note": "Dinner crepes at Lago Apartments"
       },
       {
         "dow": "FRI",
@@ -136,22 +124,190 @@
         "name": "Venture Church Farmers Market",
         "address": "14601 Tamiami Trl E, Naples",
         "hours": "8:00 AM – 1:00 PM",
-        "note": "Crepes and Coffee at Venture Church Farmers Market"
+        "note": "Crepes and Coffee at Venture Church Farmers Market",
+        "secondLocation": {
+          "name": "The Palmeri Residences",
+          "address": "4710 Altis Dr, Naples",
+          "hours": "4:30 PM – 8:00 PM",
+          "note": "Dinner crepes at The Palmeri Residences"
+        }
       },
       {
         "dow": "SAT",
         "date": 21,
         "mon": "Nov",
-        "name":"Fort Myers Farmers Market",
-        "address":"2200 First St, Fort Myers, FL 33901",
-        "hours":"9:00 AM – 1:00 PM",
-        "note":"Crepes and Coffee at FM Farmers Market",
-        "second location": {
-          "name": "Gulf Coast Medical Center",
-          "address": "13681 Doctors Way, Fort Myers",
-          "hours": "9:00 PM – 1:00 AM",
-          "note": "Dinner crepes at Gulf Coast Medical Center"
+        "name": "Fort Myers Farmers Market",
+        "address": "2149 First St, Fort Myers",
+        "hours": "9:00 AM – 1:00 PM",
+        "note": "Crepes and Coffee at Fort Myers Farmers Market"
+      }
+    ],
+    "2026-11-22": [
+      {
+        "dow": "SUN",
+        "date": 22,
+        "mon": "Nov",
+        "name": "Eagle's Nest Beach Resort, a Hilton Grand Vacations Club",
+        "address": "410 S Collier Blvd, Marco Island",
+        "hours": "9:00 AM – 1:00 PM",
+        "note": "Morning crepes at Eagle's Nest Beach Resort, a Hilton Grand Vacations Club"
+      },
+      {
+        "dow": "MON",
+        "date": 23,
+        "mon": "Nov",
+        "closed": true
+      },
+      {
+        "dow": "TUE",
+        "date": 24,
+        "mon": "Nov",
+        "name": "Magnolia Square",
+        "address": "5934 Premier Way, Naples",
+        "hours": "5:00 PM – 8:00 PM",
+        "note": "Dinner crepes at Magnolia Square"
+      },
+      {
+        "dow": "WED",
+        "date": 25,
+        "mon": "Nov",
+        "closed": true
+      },
+      {
+        "dow": "THU",
+        "date": 26,
+        "mon": "Nov",
+        "name": "RiverCreek",
+        "address": "12776 Springbrook Ct, Estero",
+        "hours": "8:00 AM – 10:30 AM",
+        "note": "Morning crepes at RiverCreek"
+      },
+      {
+        "dow": "FRI",
+        "date": 27,
+        "mon": "Nov",
+        "name": "Venture Church Farmers Market",
+        "address": "14601 Tamiami Trl E, Naples",
+        "hours": "8:00 AM – 1:00 PM",
+        "note": "Crepes and Coffee at Venture Church Farmers Market",
+        "secondLocation": {
+          "name": "Aspire Naples",
+          "address": "5050 Aspire Way, Naples",
+          "hours": "5:00 PM – 8:00 PM",
+          "note": "Dinner crepes at Aspire Naples"
         }
+      },
+      {
+        "dow": "SAT",
+        "date": 28,
+        "mon": "Nov",
+        "name": "Fort Myers Farmers Market",
+        "address": "2149 First St, Fort Myers",
+        "hours": "9:00 AM – 1:00 PM",
+        "note": "Crepes and Coffee at Fort Myers Farmers Market"
+      }
+    ],
+    "2026-11-29": [
+      {
+        "dow": "SUN",
+        "date": 29,
+        "mon": "Nov",
+        "name": "Eagle's Nest Beach Resort, a Hilton Grand Vacations Club",
+        "address": "410 S Collier Blvd, Marco Island",
+        "hours": "9:00 AM – 1:00 PM",
+        "note": "Morning crepes at Eagle's Nest Beach Resort, a Hilton Grand Vacations Club"
+      },
+      {
+        "dow": "MON",
+        "date": 30,
+        "mon": "Nov",
+        "name": "Fiori Apartments",
+        "address": "8552 Collier Blvd, Naples",
+        "hours": "4:00 PM – 7:00 PM",
+        "note": "Dinner crepes at Fiori Apartments"
+      },
+      {
+        "dow": "TUE",
+        "date": 1,
+        "mon": "Dec",
+        "closed": true
+      },
+      {
+        "dow": "WED",
+        "date": 2,
+        "mon": "Dec",
+        "closed": true
+      },
+      {
+        "dow": "THU",
+        "date": 3,
+        "mon": "Dec",
+        "closed": true
+      },
+      {
+        "dow": "FRI",
+        "date": 4,
+        "mon": "Dec",
+        "closed": true
+      },
+      {
+        "dow": "SAT",
+        "date": 5,
+        "mon": "Dec",
+        "name": "Fort Myers Farmers Market",
+        "address": "2149 First St, Fort Myers",
+        "hours": "9:00 AM – 1:00 PM",
+        "note": "Crepes and Coffee at Fort Myers Farmers Market"
+      }
+    ],
+    "2026-12-06": [
+      {
+        "dow": "SUN",
+        "date": 6,
+        "mon": "Dec",
+        "name": "Eagle's Nest Beach Resort, a Hilton Grand Vacations Club",
+        "address": "410 S Collier Blvd, Marco Island",
+        "hours": "9:00 AM – 1:00 PM",
+        "note": "Morning crepes at Eagle's Nest Beach Resort, a Hilton Grand Vacations Club"
+      },
+      {
+        "dow": "MON",
+        "date": 7,
+        "mon": "Dec",
+        "closed": true
+      },
+      {
+        "dow": "TUE",
+        "date": 8,
+        "mon": "Dec",
+        "closed": true
+      },
+      {
+        "dow": "WED",
+        "date": 9,
+        "mon": "Dec",
+        "closed": true
+      },
+      {
+        "dow": "THU",
+        "date": 10,
+        "mon": "Dec",
+        "closed": true
+      },
+      {
+        "dow": "FRI",
+        "date": 11,
+        "mon": "Dec",
+        "closed": true
+      },
+      {
+        "dow": "SAT",
+        "date": 12,
+        "mon": "Dec",
+        "name": "Fort Myers Farmers Market",
+        "address": "2149 First St, Fort Myers",
+        "hours": "9:00 AM – 1:00 PM",
+        "note": "Crepes and Coffee at Fort Myers Farmers Market"
       }
     ]
   }

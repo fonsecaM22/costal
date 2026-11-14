@@ -2,7 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0",>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Coastal Crêperie is a family-owned crepe, coffee and matcha food trailer in Naples, Florida. Fresh sweet and savory crepes made to order, plus catering for community and private events across Southwest Florida.">
+<meta property="og:title" content="Coastal Crêperie | Gourmet Crêpes, Matcha & Coffee in Southwest Florida">
+<meta property="og:description" content="Fresh crepes, signature lattes and Kyoto matcha, made to order in Naples and Southwest Florida. Book us for your next event.">
+<meta property="og:image" content="https://coastalcreperie.com/assets/logo.png">
+<meta property="og:url" content="https://coastalcreperie.com/">
+<meta name="theme-color" content="#1B2A4A">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>Coastal Créperie | Gourmet Crêpes, Matcha & Coffee in Southwest Florida</title>
 <script src="https://kit.fontawesome.com/293aa5b3ae.js" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +25,7 @@
 <header>
   <div class="brand">
     <figure class="logo">
-      <img src="assets/logo.png" alt="">
+      <img src="assets/logo.png" alt="Coastal Créperie logo">
     </figure>
     <h1 class="nav__title">
     Coastal Créperie
@@ -35,13 +45,16 @@
       <li class="nav__link--anchor">
         <a href="#story">Our Story</a>
       </li>
+      <li class="nav__link--anchor">
+        <a href="#events">Book Us</a>
+      </li>
     </ul>
   </nav>
   <button class="find__us--btn" id="findUsBtn" >Find Us</button>
 </header>
 
 <section class="main">
-  <img src="assets/background.png" class="main__image" alt=""
+  <img src="assets/background.jpg" class="main__image" alt=""
   loading="lazy"
   decoding="async"
   >
@@ -53,15 +66,15 @@
 
     <div class="today__card">
       <div class="eyebrow card__eyebrow"><span class="dot"></span> Not just another crepe truck.</div>
-      <h3 class="card__title" id="todayStopName">Santa Monica Pier</h3>
+      <h3 class="card__title" id="todayStopName">Finding today's stop...</h3>
       <div class="today__meta">
         <span>
           <i class="fa-solid fa-location-dot"></i>
-          <span id="todayAddress">200 Santa Monica Pier, Santa Monica, CA</span>
+          <span id="todayAddress">Naples &amp; Southwest Florida</span>
         </span>
         <span>
           <i class="fa-solid fa-clock"></i>
-          <span id="todayHours">10:00 AM – 8:00 PM</span>
+          <span id="todayHours"></span>
         </span>
       </div>
     </div>
@@ -78,17 +91,17 @@
 
   <div class="location-panel">
     <div class="location-info">
-      <h3 id="stopName" class="fade">Santa Monica Pier</h3>
-      <p id="stopNote" class="fade">Sunset service with live acoustic set</p>
+      <h3 id="stopName" class="fade">Loading schedule...</h3>
+      <p id="stopNote" class="fade"></p>
     </div>
     <div class="location-details fade" id="stopDetails">
       <div class="row">
         <i class="fa-solid fa-location-dot"></i>
-        <span id="stopAddress">200 Santa Monica Pier, Santa Monica, CA</span>
+        <span id="stopAddress"></span>
       </div>
       <div class="row">
         <i class="fa-solid fa-clock"></i>
-        <span id="stopHours">10:00 AM – 8:00 PM</span>
+        <span id="stopHours"></span>
       </div>
       <button class="maps__btn btn" id="mapsBtn">Open in Maps</button>
     </div>
@@ -129,8 +142,8 @@
         Coastal Crêperie started in December 2025 as a family-owned food trailer with one goal: make crepes the way they should be made.
 The batter we use is a family recipe carried for generations. I learned it from my grandmother, and we still make it the same way.
 Not three strawberries on a plate. Not batter poured from a mix. Not coffee from a bag that’s been sitting around.
-We cook every crepe to order on a professional Krampouz griddle. We use free-range eggs, extra virgin olive oil, halal chicken tenderloins, and Black Angus tri-tip. Our matcha is first-harvest matcha from Kyoto, Japan — shipped to us every few weeks straight from Kyoto plantations. Our coffee beans are freshly roasted by a local roaster.
-We are a family business. We show up at farmers markets, hospitals, universities, apartments, and community clubhouses because that’s where people actually live — and that’s where good food belongs.
+We cook every crepe to order on a professional Krampouz griddle. We use free-range eggs, extra virgin olive oil, halal chicken tenderloins, and Black Angus tri-tip. Our matcha is first-harvest matcha from Kyoto, Japan, shipped to us every few weeks straight from Kyoto plantations. Our coffee beans are freshly roasted by a local roaster.
+We are a family business. We show up at farmers markets, hospitals, universities, apartments, and community clubhouses because that’s where people actually live, and that’s where good food belongs.
       </p>
       
     </div>
@@ -142,24 +155,55 @@ We are a family business. We show up at farmers markets, hospitals, universities
   </div>
 </section>
 
+<section class="events__section" id="events">
+  <div class="section__eyebrow">Book Us</div>
+  <h2 class="section__title">Catering for your next event</h2>
+  <p class="events__intro">From community gatherings and corporate events to private parties and celebrations, we bring fresh crepes and handcrafted drinks right to your guests. Every event is different, so we create a customized menu tailored to your needs. Tell us about your event and we will put together the right options for you.</p>
+
+  <div class="packages">
+    <div class="package">
+      <h3>Custom Menu</h3>
+      <p>A menu tailored to your guests, your occasion and your style.</p>
+    </div>
+    <div class="package">
+      <h3>Crepes and Drinks</h3>
+      <p>Sweet and savory crepes made to order, plus signature coffee, matcha and fresh lemonade.</p>
+    </div>
+    <div class="package">
+      <h3>Flexible Options</h3>
+      <p>Service that fits your group size, schedule and location across Southwest Florida.</p>
+    </div>
+  </div>
+
+  <p class="events__note">Share your date, location and guest count, and we will get back to you with a menu made for your event.</p>
+  <div class="events__actions">
+    <a class="maps__btn btn" href="mailto:coastalcreperie@gmail.com?subject=Event%20booking%20inquiry">Email Coastalcreperie@gmail.com</a>
+    <a class="maps__btn btn events__btn--outline" href="tel:+19515221260">Call or text 951-522-1260</a>
+  </div>
+</section>
+
 <footer>
   <figure class="footer__logo">
     <a href="#">
-    <img src="assets/logo.png" alt="">
+    <img src="assets/logo.png" alt="Coastal Créperie logo">
     </a>
   </figure>
   <h2>Most crepe trucks and restaurants cut corners - We don't.</h2>
   <p>Full crepes, not garnish · Better ingredients · Real drinks · Made in front of you · Family-owned · That's why people wait in line · And that's why they come back.</p>
   <div class="footer-actions">
     <button class="footer-btn">
-      <a href="https://www.instagram.com/coastal__creperie?utm_source=qr" target="_blank">
+      <a href="https://www.instagram.com/coastal__creperie/" target="_blank" rel="noopener">
       <i class="fa-brands fa-instagram"></i>
-      @COASTALCREPERIE
+      @COASTAL__CREPERIE
       </a>
     </button>
     <button class="footer-btn" onclick="window.location.href='mailto:coastalcreperie@gmail.com'">
       <i class="fa-solid fa-envelope"></i>
       coastalcreperie@gmail.com
+    </button>
+    <button class="footer-btn" onclick="window.location.href='tel:+19515221260'">
+      <i class="fa-solid fa-phone"></i>
+      951-522-1260
     </button>
     <button class="footer-btn">
       <a href="https://www.facebook.com/p/Coastal-Crêperie-61578297675820/" target="_blank">
@@ -168,7 +212,7 @@ We are a family business. We show up at farmers markets, hospitals, universities
       </a>
     </button>
   </div>
-  <div class="footer-fine">© 2026 COASTAL CRÉPERIE · FORT MYERS</div>
+  <div class="footer-fine">© 2026 COASTAL CRÉPERIE · NAPLES · SOUTHWEST FLORIDA</div>
 </footer>
 
 <div class="modal-overlay" id="itemModal">
