@@ -709,3 +709,67 @@
   font-size:1.4rem;
   color:var(--navy);
 }
+
+  /* ---------- EVENTS / BOOK US ---------- */
+  .events__section{
+    padding:90px 48px 100px;
+    max-width:1120px;
+    margin:0 auto;
+  }
+  .events__intro, .events__note{
+    color:var(--muted);
+    font-size:.98rem;
+    line-height:1.65;
+    max-width:620px;
+    margin-bottom:36px;
+  }
+  .events__note{margin:30px 0 22px;}
+  .packages{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:18px;
+  }
+  .package{
+    background:var(--white);
+    border:1px solid var(--gold);
+    border-radius:10px;
+    padding:28px 26px;
+  }
+  .package h3{
+    font-size:1.7rem;
+    color:#0793a5;
+    margin:10px 0 8px;
+  }
+  .package p{
+    color:var(--ink);
+    font-size:.92rem;
+    line-height:1.6;
+  }
+  .package__price{
+    font-family:'Cormorant Garamond', serif;
+    font-size:2.4rem;
+    color:var(--navy-deep);
+    line-height:1;
+  }
+  .package__price span{
+    font-family:'Jost',sans-serif;
+    font-size:.68rem;
+    letter-spacing:1.5px;
+    color:var(--muted);
+    text-transform:uppercase;
+  }
+  .events__actions{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .events__actions .maps__btn{display:inline-flex;}
+  .events__btn--outline{
+    background:transparent;
+    border:1px solid var(--navy-deep);
+  }
+  .events__btn--outline:hover{background:#B8E0DC;}
+  @media (max-width:860px){
+    .events__section{padding:60px 22px 70px;}
+    .packages{grid-template-columns:1fr;}
+  }
