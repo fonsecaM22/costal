@@ -318,7 +318,7 @@ setInterval(() => {
     coffee: {
       label:'Coffee',
       kicker:'Freshly roasted coffee',
-      desc:'Freshly roasted by a local roaster. All lattes are 16oz. All signature lattes are $7.50.',
+      desc:'Specialty coffee made with beans freshly roasted by a local roaster. Enjoy any latte hot or iced, and top it with vanilla cold foam. All lattes are 16oz. All signature lattes are $7.50.',
       image: './assets/caramel_drizzle.webp',
       items: [
         { name:'Espresso', desc:'Classic', tags:'Classics', price:'$4.00' },
@@ -340,7 +340,7 @@ setInterval(() => {
     matcha: {
       label:'Matcha',
       kicker:'First-harvest matcha',
-      desc:'Matcha shipped from Kyoto, Japan every few weeks. All matchas are 16oz. All signature matchas are $8.',
+      desc:'Our matcha lattes are made with first-harvest matcha shipped from Kyoto, Japan every few weeks. All matchas are 16oz. All signature matchas are $8.',
       image: './assets/matcha.webp',
       items: [
         { name:'Matcha', desc:'First-harvest Matcha, 16oz', tags:'Fresh', price:'$7.00', image:'./assets/matcha.webp' },
@@ -410,7 +410,7 @@ setInterval(() => {
     menuImage.loading = 'eager';
     menuImage.decoding = 'async';
     menuImage.src = cat.image;
-    menuImage.alt = cat.label + ' at Coastal Créperie';
+    menuImage.alt = cat.label + ' from Coastal Crêperie food truck in Naples, FL';
     menuKicker.textContent = cat.kicker.toUpperCase();
     menuTitle.textContent = cat.label;
     menuDesc.textContent = cat.desc;
@@ -456,7 +456,7 @@ setInterval(() => {
 
   function openItemModal(item, categoryImage){
     modalImage.src = categoryImage;
-    modalImage.alt = item.name;
+    modalImage.alt = item.name + ' from Coastal Crêperie';
     modalName.textContent = item.name;
     modalTags.textContent = item.tags;
     modalDesc.textContent = item.desc;
@@ -483,3 +483,80 @@ setInterval(() => {
   });
 
  
+
+  // ---- Booking form (FormSubmit AJAX) ----
+  const bookingForm = document.getElementById('bookingForm');
+
+  if (bookingForm) {
+    const bookingSubmit = document.getElementById('bookingSubmit');
+    const bookingStatus = document.getElementById('bookingStatus');
+    const FORM_ENDPOINT = 'https://formsubmit.co/ajax/coastalcreperie@gmail.com';
+
+    bookingForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      bookingStatus.textContent = '';
+      bookingStatus.className = 'booking__status';
+
+      // Simple validation with friendly highlighting
+      let firstInvalid = null;
+      bookingForm.querySelectorAll('[required]').forEach(field => {
+        const wrap = field.closest('.booking__field');
+        const ok = field.checkValidity();
+        wrap.classList.toggle('invalid', !ok);
+        if (!ok && !firstInvalid) firstInvalid = field;
+      });
+
+      if (firstInvalid) {
+        bookingStatus.textContent = 'Please fill in the highlighted fields.';
+        bookingStatus.classList.add('error');
+        firstInvalid.focus();
+        return;
+      }
+
+      const data = Object.fromEntries(new FormData(bookingForm).entries());
+
+      // Honeypot: real visitors never fill this in
+      if (data._honey) return;
+
+      data._subject = 'New event inquiry from website';
+      data._template = 'table';
+      data._captcha = 'false';
+
+      bookingSubmit.disabled = true;
+      bookingSubmit.textContent = 'Sending...';
+
+      try {
+        const response = await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+        const result = await response.json().catch(() => ({}));
+
+        if (!response.ok || String(result.success) !== 'true') {
+          throw new Error(result.message || `HTTP ${response.status}`);
+        }
+
+        bookingForm.innerHTML = `
+          <div class="booking__thanks">
+            <h3>Thank you!</h3>
+            <p>We received your inquiry and will get back to you soon with a menu made for your event.</p>
+          </div>
+        `;
+      } catch (err) {
+        console.warn('Booking form error:', err);
+        bookingStatus.innerHTML = 'Sorry, something went wrong sending your inquiry. Please email us at <a href="mailto:coastalcreperie@gmail.com">coastalcreperie@gmail.com</a> or call 951-522-1260.';
+        bookingStatus.classList.add('error');
+        bookingSubmit.disabled = false;
+        bookingSubmit.textContent = 'Send inquiry';
+      }
+    });
+
+    bookingForm.addEventListener('input', (e) => {
+      const wrap = e.target.closest('.booking__field');
+      if (wrap && e.target.checkValidity()) wrap.classList.remove('invalid');
+    });
+  }
