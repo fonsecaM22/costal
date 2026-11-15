@@ -14,6 +14,8 @@ const todayStopName = document.getElementById('todayStopName');
 const todayAddress = document.getElementById('todayAddress');
 const todayHours = document.getElementById('todayHours');
 const weekTabs = document.getElementById('weekTabs');
+const locationPanel = document.getElementById('locationPanel');
+const twoStops = document.getElementById('twoStops');
 const SFF_URL = 'https://streetfoodfinder.com/CoastalCreperie';
 
 async function loadSchedule() {
@@ -230,6 +232,7 @@ function showEmptyWeek() {
   dayStrip.innerHTML = `
     <p>${label} schedule is coming soon. See our latest stops on <a href="${SFF_URL}" target="_blank" rel="noopener">StreetFoodFinder</a>.</p>
   `;
+  setTwoStopMode(false);
   stopName.textContent = 'Schedule coming soon';
   stopNote.textContent = viewingNext
     ? 'Follow us on Instagram or StreetFoodFinder for next week\'s stops.'
@@ -249,10 +252,15 @@ function renderDayStrip() {
       'day__card' +
       (i === selectedIndex ? ' selected' : '');
 
+    const hasTwo = !stop.closed && !!(stop.secondLocation || stop['second location']);
+
+    if (hasTwo) card.classList.add('has-two');
+
     card.innerHTML = `
       <span class="dow">${stop.dow}</span>
       <span class="date">${stop.date}</span>
       <span class="mon">${stop.mon}</span>
+      ${hasTwo ? '<span class="stops__badge">2 stops</span>' : ''}
     `;
 
     card.addEventListener('click', () => {
@@ -270,6 +278,90 @@ function selectDay(i) {
   updatePanel();
 }
 
+function openMaps(address) {
+  const query = encodeURIComponent(address);
+
+  window.open(
+    `https://www.google.com/maps/search/?api=1&query=${query}`,
+    '_blank'
+  );
+}
+
+function setTwoStopMode(on) {
+  if (!locationPanel || !twoStops) return;
+  locationPanel.style.display = on ? 'none' : '';
+  twoStops.style.display = on ? '' : 'none';
+  if (!on) twoStops.innerHTML = '';
+}
+
+function timeOfDayLabel(hours) {
+  const start = parseHoursRange(hours).start;
+  if (start === null) return '';
+  if (start < 11 * 60) return 'Morning';
+  if (start < 15 * 60) return 'Midday';
+  if (start < 16 * 60) return 'Afternoon';
+  return 'Evening';
+}
+
+function escapeHtml(str) {
+  return String(str || '').replace(/[&<>"']/g, c => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  }[c]));
+}
+
+function renderTwoStops(stop, secondStop) {
+  const stops = [
+    { name: stop.name, address: stop.address, hours: stop.hours, note: stop.note },
+    { name: secondStop.name, address: secondStop.address, hours: secondStop.hours, note: secondStop.note }
+  ].sort((a, b) => parseHoursRange(a.hours).start - parseHoursRange(b.hours).start);
+
+  // Only today (on the current week) gets "Now serving" / "Up next"
+  const isToday = !viewingNext && selectedIndex === new Date().getDay();
+  let highlight = -1;
+  let status = '';
+
+  if (isToday) {
+    const nowMin = getNowMinutes();
+    stops.forEach((s, i) => {
+      const r = parseHoursRange(s.hours);
+      if (highlight === -1 && isWithinRange(nowMin, r.start, r.end)) {
+        highlight = i;
+        status = 'Now serving';
+      }
+    });
+    if (highlight === -1) {
+      const nextIdx = stops.findIndex(s => nowMin < parseHoursRange(s.hours).start);
+      if (nextIdx !== -1) {
+        highlight = nextIdx;
+        status = 'Up next';
+      }
+    }
+  }
+
+  twoStops.innerHTML = stops.map((s, i) => `
+    <div class="stop__block${i === highlight ? ' is-current' : ''}">
+      <div class="stop__label">
+        <span>Stop ${i + 1} · ${timeOfDayLabel(s.hours)}</span>
+        ${i === highlight ? `<span class="stop__status"><span class="dot"></span>${status}</span>` : ''}
+      </div>
+      <h3 class="stop__name">${escapeHtml(s.name)}</h3>
+      <div class="row">
+        <i class="fa-solid fa-location-dot"></i>
+        <span>${escapeHtml(s.address)}</span>
+      </div>
+      <div class="row">
+        <i class="fa-solid fa-clock"></i>
+        <span>${escapeHtml(s.hours)}</span>
+      </div>
+      <button class="maps__btn btn" data-address="${escapeHtml(s.address)}">Open in Maps</button>
+    </div>
+  `).join('');
+
+  twoStops.querySelectorAll('.maps__btn').forEach(btn => {
+    btn.addEventListener('click', () => openMaps(btn.dataset.address));
+  });
+}
+
 function updatePanel() {
   const week = shownWeek();
   if (!week) return;
@@ -277,6 +369,7 @@ function updatePanel() {
   const stop = week[selectedIndex];
 
   if (stop.closed) {
+    setTwoStopMode(false);
     stopName.textContent = viewingNext ? 'No service this day' : 'No service today';
     stopNote.textContent = viewingNext
       ? 'We are taking the day off. Check the other days for our stops!'
@@ -289,30 +382,25 @@ function updatePanel() {
     return;
   }
 
-  // "Now" logic only applies to the current week. For next week, show the
-  // first stop and mention the second one in the note.
+  // Days with two stops show both as equal blocks
   const secondStop = stop.secondLocation || stop['second location'];
-  const active = viewingNext
-    ? { name: stop.name, address: stop.address, hours: stop.hours, note: stop.note }
-    : getActiveLocation(stop);
 
-  stopName.textContent = active.name;
-  stopNote.textContent = (viewingNext && secondStop)
-    ? `${active.note.replace(/\.$/, "")}. Later: ${secondStop.name}, ${secondStop.hours}, ${secondStop.address}`
-    : active.note;
-  stopAddress.textContent = active.address;
-  stopHours.textContent = active.hours;
+  if (secondStop) {
+    setTwoStopMode(true);
+    renderTwoStops(stop, secondStop);
+    return;
+  }
+
+  setTwoStopMode(false);
+
+  stopName.textContent = stop.name;
+  stopNote.textContent = stop.note;
+  stopAddress.textContent = stop.address;
+  stopHours.textContent = stop.hours;
 
   mapsBtn.style.display = 'inline-flex';
 
-  mapsBtn.onclick = () => {
-    const query = encodeURIComponent(active.address);
-
-    window.open(
-      `https://www.google.com/maps/search/?api=1&query=${query}`,
-      '_blank'
-    );
-  };
+  mapsBtn.onclick = () => openMaps(stop.address);
 }
 
 document.getElementById('findUsBtn').addEventListener('click', () => {
