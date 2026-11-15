@@ -865,3 +865,16 @@
     .booking__card{padding:26px 20px;}
     .booking__grid{grid-template-columns:1fr;}
   }
+
+  /* ---------- WEEK TABS ---------- */
+  .week__tabs{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin:-20px 0 26px;
+  }
+  .week__tab{font-family:inherit;}
+  @media (max-width:520px){
+    .week__tabs{margin:-24px 0 20px;}
+    .week__tab{flex:1;text-align:center;}
+  }

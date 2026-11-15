@@ -1,5 +1,7 @@
 let scheduleData = null;
 let schedule = [];
+let nextSchedule = null;
+let viewingNext = false;
 let selectedIndex = 0;
 
 const dayStrip = document.getElementById('dayStrip');
@@ -11,6 +13,8 @@ const mapsBtn = document.getElementById('mapsBtn');
 const todayStopName = document.getElementById('todayStopName');
 const todayAddress = document.getElementById('todayAddress');
 const todayHours = document.getElementById('todayHours');
+const weekTabs = document.getElementById('weekTabs');
+const SFF_URL = 'https://streetfoodfinder.com/CoastalCreperie';
 
 async function loadSchedule() {
   try {
@@ -31,11 +35,11 @@ async function loadSchedule() {
   }
 }
 
-function getWeekStart() {
+function getWeekStart(weekOffset = 0) {
   const today = new Date();
 
   const sunday = new Date(today);
-  sunday.setDate(today.getDate() - today.getDay());
+  sunday.setDate(today.getDate() - today.getDay() + weekOffset * 7);
 
   const year = sunday.getFullYear();
   const month = String(sunday.getMonth() + 1).padStart(2, '0');
@@ -164,37 +168,81 @@ function loadCurrentWeek() {
   console.log('Current week:', weekStart);
 
   schedule = scheduleData.weeks[weekStart];
+  nextSchedule = scheduleData.weeks[getWeekStart(1)] || null;
+
+  setupWeekTabs();
 
   if (!schedule) {
-    dayStrip.innerHTML = `
-      <p>This week's schedule is coming soon. See our latest stops on <a href="https://streetfoodfinder.com/CoastalCreperie" target="_blank" rel="noopener">StreetFoodFinder</a>.</p>
-    `;
-    stopName.textContent = 'Schedule coming soon';
-    stopNote.textContent = 'Follow us on Instagram or StreetFoodFinder for this week\'s stops.';
-    stopAddress.textContent = '';
-    stopHours.textContent = '';
-    mapsBtn.style.display = 'none';
     todayStopName.textContent = 'Find us on StreetFoodFinder';
     todayAddress.textContent = 'streetfoodfinder.com/CoastalCreperie';
     todayHours.textContent = '';
+  } else {
+    updateTodayCard();
+  }
 
+  showWeek(false);
+}
+
+// The week currently shown in the schedule section
+function shownWeek() {
+  return viewingNext ? nextSchedule : schedule;
+}
+
+function setupWeekTabs() {
+  if (!weekTabs) return;
+
+  weekTabs.querySelectorAll('.week__tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      showWeek(tab.dataset.week === 'next');
+    });
+  });
+}
+
+function renderWeekTabs() {
+  if (!weekTabs) return;
+
+  weekTabs.querySelectorAll('.week__tab').forEach(tab => {
+    const isActive = (tab.dataset.week === 'next') === viewingNext;
+    tab.classList.toggle('active', isActive);
+    tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+  });
+}
+
+function showWeek(next) {
+  viewingNext = next;
+  renderWeekTabs();
+
+  if (!shownWeek()) {
+    showEmptyWeek();
     return;
   }
 
-  // Select today's day
-  const today = new Date().getDay();
-
-  selectedIndex = today;
+  // Highlight today only on the current week; next week starts on Sunday
+  selectedIndex = viewingNext ? 0 : new Date().getDay();
 
   renderDayStrip();
   updatePanel();
-  updateTodayCard();
+}
+
+function showEmptyWeek() {
+  const label = viewingNext ? 'Next week\'s' : 'This week\'s';
+
+  dayStrip.innerHTML = `
+    <p>${label} schedule is coming soon. See our latest stops on <a href="${SFF_URL}" target="_blank" rel="noopener">StreetFoodFinder</a>.</p>
+  `;
+  stopName.textContent = 'Schedule coming soon';
+  stopNote.textContent = viewingNext
+    ? 'Follow us on Instagram or StreetFoodFinder for next week\'s stops.'
+    : 'Follow us on Instagram or StreetFoodFinder for this week\'s stops.';
+  stopAddress.textContent = '';
+  stopHours.textContent = '';
+  mapsBtn.style.display = 'none';
 }
 
 function renderDayStrip() {
   dayStrip.innerHTML = '';
 
-  schedule.forEach((stop, i) => {
+  shownWeek().forEach((stop, i) => {
     const card = document.createElement('button');
 
     card.className =
@@ -223,11 +271,16 @@ function selectDay(i) {
 }
 
 function updatePanel() {
-  const stop = schedule[selectedIndex];
+  const week = shownWeek();
+  if (!week) return;
+
+  const stop = week[selectedIndex];
 
   if (stop.closed) {
-    stopName.textContent = 'No service today';
-    stopNote.textContent = 'We are taking the day off. Check back tomorrow!';
+    stopName.textContent = viewingNext ? 'No service this day' : 'No service today';
+    stopNote.textContent = viewingNext
+      ? 'We are taking the day off. Check the other days for our stops!'
+      : 'We are taking the day off. Check back tomorrow!';
     stopAddress.textContent = '';
     stopHours.textContent = 'Closed';
 
@@ -236,10 +289,17 @@ function updatePanel() {
     return;
   }
 
-  const active = getActiveLocation(stop);
+  // "Now" logic only applies to the current week. For next week, show the
+  // first stop and mention the second one in the note.
+  const secondStop = stop.secondLocation || stop['second location'];
+  const active = viewingNext
+    ? { name: stop.name, address: stop.address, hours: stop.hours, note: stop.note }
+    : getActiveLocation(stop);
 
   stopName.textContent = active.name;
-  stopNote.textContent = active.note;
+  stopNote.textContent = (viewingNext && secondStop)
+    ? `${active.note.replace(/\.$/, "")}. Later: ${secondStop.name}, ${secondStop.hours}, ${secondStop.address}`
+    : active.note;
   stopAddress.textContent = active.address;
   stopHours.textContent = active.hours;
 
@@ -271,7 +331,7 @@ setInterval(() => {
   if (!schedule || !schedule.length) return;
 
   updateTodayCard();
-  updatePanel();
+  if (!viewingNext) updatePanel();
 }, 60 * 1000);
 
 
