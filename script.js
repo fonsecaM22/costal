@@ -4,6 +4,9 @@ let nextSchedule = null;
 let viewingNext = false;
 let selectedIndex = 0;
 
+const ICON_LOCATION = '<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>';
+const ICON_CLOCK = '<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></svg>';
+
 const dayStrip = document.getElementById('dayStrip');
 const stopName = document.getElementById('stopName');
 const stopNote = document.getElementById('stopNote');
@@ -346,11 +349,11 @@ function renderTwoStops(stop, secondStop) {
       </div>
       <h3 class="stop__name">${escapeHtml(s.name)}</h3>
       <div class="row">
-        <i class="fa-solid fa-location-dot"></i>
+        ${ICON_LOCATION}
         <span>${escapeHtml(s.address)}</span>
       </div>
       <div class="row">
-        <i class="fa-solid fa-clock"></i>
+        ${ICON_CLOCK}
         <span>${escapeHtml(s.hours)}</span>
       </div>
       <button class="maps__btn btn" data-address="${escapeHtml(s.address)}">Open in Maps</button>
@@ -447,7 +450,7 @@ setInterval(() => {
         { name:'Nutella Strawberry', desc:'Nutella, Strawberries', tags:'Sweet', price:'$11.00' },
         { name:'Nutella Banana', desc:'Nutella, Bananas', tags:'Sweet', price:'$11.00', image:'./assets/banana_nutella.webp' },
         { name:'Nutella Strawberry Banana', desc:'Nutella, Strawberries, Bananas', tags:'Sweet', price:'$12.00' },
-        { name:'Campfire S’more', desc:'Nutella, Graham Crackers, Marshmallows', tags:'Sweet', price:'$12.00', image:'./assets/smores.jpg' },
+        { name:'Campfire S’more', desc:'Nutella, Graham Crackers, Marshmallows', tags:'Sweet', price:'$12.00', image:'./assets/smores.webp' },
         { name:'Coco Bliss', desc:'Condensed Milk, Berries, Coconut Shavings, Chocolate Drizzle', tags:'Sweet', price:'$13.00', image:'./assets/coco.webp' },
         { name:'Caramel Banana Crepe', desc:'Caramel, Bananas', tags:'Sweet', price:'$12.00' },
       ]
@@ -492,7 +495,7 @@ setInterval(() => {
       image: './assets/matcha.webp',
       items: [
         { name:'Matcha', desc:'First-harvest Matcha, 16oz', tags:'Fresh', price:'$7.00', image:'./assets/matcha.webp' },
-        { name:'Islamorada Matcha', desc:'Mango + Guava', tags:'Signature Matcha', price:'$8.00', image:'./assets/islamorada_matcha.jpg' },
+        { name:'Islamorada Matcha', desc:'Mango + Guava', tags:'Signature Matcha', price:'$8.00', image:'./assets/islamorada_matcha.webp' },
         { name:'Jasmine Honey Matcha', desc:'Jasmine, Honey', tags:'Signature Matcha', price:'$8.00', image:'./assets/honey_matcha.webp' },
         { name:'Fruit Matcha', desc:'Mango, Strawberry, Raspberry, or Blueberry', tags:'Signature Matcha', price:'$8.00' },
         { name:'Strawberry Vanilla Matcha', desc:'Strawberry, Vanilla', tags:'Signature Matcha', price:'$8.00' },
