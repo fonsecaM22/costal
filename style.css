@@ -263,6 +263,54 @@
     gap:7px;
 }
 
+  /* ---------- ORDER AHEAD ---------- */
+  .order__btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--light-gold);
+    color:#1B2A4A;
+    font-size:.75rem;
+    font-weight:600;
+    letter-spacing:1.2px;
+    padding:13px 28px;
+    min-height:44px;
+    border-radius:30px;
+    border:none;
+    cursor:pointer;
+    box-shadow:0 2px 6px rgba(201,138,68,.25);
+    transition:transform .18s ease, background .18s ease, box-shadow .18s ease;
+  }
+  .order__btn:hover{
+    background:var(--gold);
+    transform:translateY(-1px);
+    box-shadow:0 6px 14px rgba(201,138,68,.35);
+  }
+  .order__btn:focus-visible{
+    outline:2px solid var(--navy-deep);
+    outline-offset:3px;
+  }
+  .order__note{
+    margin-top:10px;
+    font-size:.88rem;
+    line-height:1.45;
+  }
+  .hero__order{
+    margin-top:22px;
+    max-width:460px;
+  }
+  .hero__order .order__note{
+    color:var(--navy-deep);
+  }
+  .menu__section .section__title{
+    margin-bottom:18px;
+  }
+  .menu__order{
+    margin-bottom:36px;
+  }
+  .menu__order .order__note{
+    color:var(--muted);
+  }
 
   /* ---------- SCHEDULE SECTION ---------- */
   .schedule{
