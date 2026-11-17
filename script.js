@@ -470,7 +470,7 @@ setInterval(() => {
       label:'Coffee',
       kicker:'Freshly roasted coffee',
       desc:'Specialty coffee made with beans freshly roasted by a local roaster. Enjoy any latte hot or iced, and top it with vanilla cold foam. All lattes are 16oz. All signature lattes are $7.50.',
-      image: './assets/caramel_drizzle.webp',
+      image: './assets/coffee.webp',
       items: [
         { name:'Espresso', desc:'Classic', tags:'Classics', price:'$4.00' },
         { name:'Cappuccino', desc:'Classic', tags:'Classics', price:'$6.00' },
@@ -479,7 +479,7 @@ setInterval(() => {
         { name:'Mocha', desc:'Classic, 16oz', tags:'Classics', price:'$7.00' },
         { name:'Hot Chocolate', desc:'Classic', tags:'Classics', price:'$6.00' },
         { name:'Cookie Butter Latte', desc:'Cookie Butter, 16oz', tags:'Signature Latte', price:'$7.50', image: './assets/coffee.webp' },
-        { name:'Caramel Drizzle Latte', desc:'Caramel, 16oz', tags:'Signature Latte', price:'$7.50', image: './assets/caramel_drizzle.webp' },
+        { name:'Caramel Drizzle Latte', desc:'Caramel, 16oz', tags:'Signature Latte', price:'$7.50', image: '' },
         { name:'Banana Bread Latte', desc:'Banana Bread, 16oz', tags:'Signature Latte', price:'$7.50', image: './assets/coffee.webp' },
         { name:'Gingerbread Cookie Latte', desc:'Gingerbread Cookie, 16oz', tags:'Signature Latte · Holiday', price:'$7.50', image: './assets/coffee.webp' },
         { name:'S’mores Latte', desc:'S’mores, 16oz', tags:'Signature Latte', price:'$7.50', image: './assets/coffee.webp' },
@@ -492,11 +492,11 @@ setInterval(() => {
       label:'Matcha',
       kicker:'First-harvest matcha',
       desc:'Our matcha lattes are made with first-harvest matcha shipped from Kyoto, Japan every few weeks. All matchas are 16oz. All signature matchas are $8.',
-      image: './assets/matcha.webp',
+      image: '',
       items: [
-        { name:'Matcha', desc:'First-harvest Matcha, 16oz', tags:'Fresh', price:'$7.00', image:'./assets/matcha.webp' },
-        { name:'Islamorada Matcha', desc:'Mango + Guava', tags:'Signature Matcha', price:'$8.00', image:'./assets/islamorada_matcha.webp' },
-        { name:'Jasmine Honey Matcha', desc:'Jasmine, Honey', tags:'Signature Matcha', price:'$8.00', image:'./assets/honey_matcha.webp' },
+        { name:'Matcha', desc:'First-harvest Matcha, 16oz', tags:'Fresh', price:'$7.00', image: '' },
+        { name:'Islamorada Matcha', desc:'Mango + Guava', tags:'Signature Matcha', price:'$8.00', image: '' },
+        { name:'Jasmine Honey Matcha', desc:'Jasmine, Honey', tags:'Signature Matcha', price:'$8.00', image: '' },
         { name:'Fruit Matcha', desc:'Mango, Strawberry, Raspberry, or Blueberry', tags:'Signature Matcha', price:'$8.00' },
         { name:'Strawberry Vanilla Matcha', desc:'Strawberry, Vanilla', tags:'Signature Matcha', price:'$8.00' },
         { name:'Banana Bread Matcha', desc:'Banana Bread', tags:'Signature Matcha', price:'$8.00' },
@@ -556,12 +556,27 @@ setInterval(() => {
     renderMenuPanel();
   }
 
+  function itemPhoto(item, cat){
+    if ('image' in item) return item.image || '';
+    return cat.image || '';
+  }
+
   function renderMenuPanel(){
     const cat = menu[activeCategory];
-    menuImage.loading = 'eager';
-    menuImage.decoding = 'async';
-    menuImage.src = cat.image;
-    menuImage.alt = cat.label + ' from Coastal Crêperie food truck in Naples, FL';
+    const grid = document.querySelector('.menu-grid');
+    if (cat.image) {
+      grid.classList.remove('no-image');
+      menuImage.hidden = false;
+      menuImage.loading = 'eager';
+      menuImage.decoding = 'async';
+      menuImage.src = cat.image;
+      menuImage.alt = cat.label + ' from Coastal Crêperie food truck in Naples, FL';
+    } else {
+      grid.classList.add('no-image');
+      menuImage.removeAttribute('src');
+      menuImage.alt = '';
+      menuImage.hidden = true;
+    }
     menuKicker.textContent = cat.kicker.toUpperCase();
     menuTitle.textContent = cat.label;
     menuDesc.textContent = cat.desc;
@@ -580,7 +595,7 @@ setInterval(() => {
       `;
 
             row.addEventListener('click', () => {
-        openItemModal(item, item.image || cat.image);
+        openItemModal(item, itemPhoto(item, cat));
       });
 
       menuItems.appendChild(row);
@@ -606,8 +621,15 @@ setInterval(() => {
   const modalPrice = document.getElementById('modalPrice');
 
   function openItemModal(item, categoryImage){
-    modalImage.src = categoryImage;
-    modalImage.alt = item.name + ' from Coastal Crêperie';
+    if (categoryImage) {
+      modalImage.hidden = false;
+      modalImage.src = categoryImage;
+      modalImage.alt = item.name + ' from Coastal Crêperie';
+    } else {
+      modalImage.removeAttribute('src');
+      modalImage.alt = '';
+      modalImage.hidden = true;
+    }
     modalName.textContent = item.name;
     modalTags.textContent = item.tags;
     modalDesc.textContent = item.desc;

@@ -457,6 +457,16 @@
     height:100%;
     object-fit:cover;
   }
+  .menu-grid.no-image{
+    grid-template-columns:1fr;
+  }
+  .menu-grid.no-image .menu-image{
+    display:none;
+  }
+  .menu-image img[hidden],
+  .modal-image[hidden]{
+    display:none;
+  }
   .menu-copy .section-eyebrow{margin-bottom:10px;}
   .menu-copy h3{
     font-size:2.4rem;
