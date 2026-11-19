@@ -556,6 +556,22 @@ setInterval(() => {
     renderMenuPanel();
   }
 
+  // Some phone in-app browsers (like Instagram's) can fail to show WebP
+  // photos. If a WebP photo fails, try the JPG copy with the same name.
+  function setPhoto(img, src){
+    img.dataset.triedJpg = '';
+    if (img.getAttribute('src') !== src) img.src = src;
+  }
+  function photoFallback(e){
+    const img = e.target;
+    const src = img.getAttribute('src') || '';
+    if (!img.dataset.triedJpg && /\.webp$/i.test(src)) {
+      img.dataset.triedJpg = '1';
+      img.src = src.replace(/\.webp$/i, '.jpg');
+    }
+  }
+  menuImage.addEventListener('error', photoFallback);
+
   function itemPhoto(item, cat){
     if ('image' in item) return item.image || '';
     return cat.image || '';
@@ -567,9 +583,7 @@ setInterval(() => {
     if (cat.image) {
       grid.classList.remove('no-image');
       menuImage.hidden = false;
-      menuImage.loading = 'eager';
-      menuImage.decoding = 'async';
-      menuImage.src = cat.image;
+      setPhoto(menuImage, cat.image);
       menuImage.alt = cat.label + ' from Coastal Crêperie food truck in Naples, FL';
     } else {
       grid.classList.add('no-image');
@@ -619,11 +633,12 @@ setInterval(() => {
   const modalTags = document.getElementById('modalTags');
   const modalDesc = document.getElementById('modalDesc');
   const modalPrice = document.getElementById('modalPrice');
+  modalImage.addEventListener('error', photoFallback);
 
   function openItemModal(item, categoryImage){
     if (categoryImage) {
       modalImage.hidden = false;
-      modalImage.src = categoryImage;
+      setPhoto(modalImage, categoryImage);
       modalImage.alt = item.name + ' from Coastal Crêperie';
     } else {
       modalImage.removeAttribute('src');
