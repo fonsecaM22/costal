@@ -558,8 +558,17 @@ setInterval(() => {
 
   // Some phone in-app browsers (like Instagram's) can fail to show WebP
   // photos. If a WebP photo fails, try the JPG copy with the same name.
+  // Phones get a smaller copy of each photo (name-640.webp); bigger
+  // screens get the full photo. Numbers are each full photo's width.
+  const PHOTO_WIDTHS = {"banana_nutella":898,"berry_bliss":1200,"blue_raspberry":808,"capri_sun":1200,"coast_chicken":1047,"coco":878,"coffee":952,"fifth_steak":1200,"lemonade":841,"shrimp":847,"smores":1200};
   function setPhoto(img, src){
     img.dataset.triedJpg = '';
+    const m = src.match(/^(.*\/)([a-z_]+)\.webp$/i);
+    if (m && PHOTO_WIDTHS[m[2]]) {
+      img.srcset = `${m[1]}${m[2]}-640.webp 640w, ${src} ${PHOTO_WIDTHS[m[2]]}w`;
+    } else {
+      img.removeAttribute('srcset');
+    }
     if (img.getAttribute('src') !== src) img.src = src;
   }
   function photoFallback(e){
@@ -567,6 +576,7 @@ setInterval(() => {
     const src = img.getAttribute('src') || '';
     if (!img.dataset.triedJpg && /\.webp$/i.test(src)) {
       img.dataset.triedJpg = '1';
+      img.removeAttribute('srcset');
       img.src = src.replace(/\.webp$/i, '.jpg');
     }
   }
