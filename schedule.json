@@ -309,6 +309,50 @@
         "hours": "9:00 AM – 1:00 PM",
         "note": "Crepes and Coffee at Fort Myers Farmers Market"
       }
+    ],
+    "2026-12-13": [
+      {
+        "dow": "SUN",
+        "date": 13,
+        "mon": "Dec",
+        "closed": true
+      },
+      {
+        "dow": "MON",
+        "date": 14,
+        "mon": "Dec",
+        "closed": true
+      },
+      {
+        "dow": "TUE",
+        "date": 15,
+        "mon": "Dec",
+        "closed": true
+      },
+      {
+        "dow": "WED",
+        "date": 16,
+        "mon": "Dec",
+        "closed": true
+      },
+      {
+        "dow": "THU",
+        "date": 17,
+        "mon": "Dec",
+        "closed": true
+      },
+      {
+        "dow": "FRI",
+        "date": 18,
+        "mon": "Dec",
+        "closed": true
+      },
+      {
+        "dow": "SAT",
+        "date": 19,
+        "mon": "Dec",
+        "closed": true
+      }
     ]
   }
 }
