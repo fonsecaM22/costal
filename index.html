@@ -47,7 +47,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="style.css?v=20261119b">
+<link rel="stylesheet" href="style.css?v=20261121a">
   <meta name="google-site-verification" content="bLrQ70BhtOHfRo4f6JGcfYjncdXDpcwfXr6_vzjK3Q4" />
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7FCZN6PLE"></script>
@@ -112,23 +112,27 @@
     <h1 class="main__title">Coastal Créperie </h1>
     <p class="main__para">A family-owned créperie and coffee truck serving fresh sweet and savory crepes, specialty coffee and matcha lattes, and freshly pressed lemonades across Naples and Southwest Florida.</p>
 
-    <div class="today__card">
-      <div class="eyebrow card__eyebrow"><span class="dot"></span> Not just another crepe truck.</div>
-      <p class="card__title" id="todayStopName">Finding today's stop...</p>
-      <div class="today__meta">
-        <span>
-          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
-          <span id="todayAddress">Naples &amp; Southwest Florida</span>
-        </span>
-        <span>
-          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></svg>
-          <span id="todayHours"></span>
-        </span>
+    <div class="hero__today" id="todayStop">
+      <div class="today__card">
+        <div class="eyebrow card__eyebrow"><span class="dot"></span> <span id="todayLabel">Today&rsquo;s stop</span></div>
+        <p class="card__title" id="todayStopName">Finding today's stop...</p>
+        <div class="today__meta">
+          <a class="today__address" id="todayAddressLink" href="https://streetfoodfinder.com/CoastalCreperie" target="_blank" rel="noopener">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
+            <span id="todayAddress">Naples &amp; Southwest Florida</span>
+          </a>
+          <span>
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></svg>
+            <span id="todayHours"></span>
+          </span>
+        </div>
+        <p class="today__later" id="todayLater" hidden></p>
       </div>
-    </div>
-    <div class="hero__order">
-      <a class="order__btn" href="https://cash.app/$coastalcreperie" target="_blank" rel="noopener">Order ahead</a>
-      <p class="order__note">Order ahead for pickup at today's stop</p>
+      <div class="hero__order">
+        <a class="order__btn" href="https://cash.app/$coastalcreperie" target="_blank" rel="noopener">Order ahead</a>
+        <p class="order__note" id="todayOrderNote">Order ahead for pickup at today's stop</p>
+        <p class="order__sat" id="todaySatNote" hidden>Saturday pre-orders: crepes only</p>
+      </div>
     </div>
   </div>
 </section>
@@ -345,7 +349,7 @@ We are a family business. We show up at farmers markets, hospitals, universities
   </div>
 </div>
 
-<script src="script.js?v=20261119a" defer></script>
+<script src="script.js?v=20261121a" defer></script>
 
 </body>
 </html>
