@@ -40,17 +40,39 @@ async function loadSchedule() {
   }
 }
 
+// ---- Dates in Naples time (America/New_York), whatever the visitor's phone says ----
+
+const SITE_TZ = 'America/New_York';
+const nyFormatter = new Intl.DateTimeFormat('en-US', {
+  timeZone: SITE_TZ,
+  year: 'numeric', month: 'numeric', day: 'numeric',
+  hour: 'numeric', minute: 'numeric', hourCycle: 'h23'
+});
+
+function nyNow() {
+  // Today's date and time in Naples, as plain numbers
+  const parts = {};
+  nyFormatter.formatToParts(new Date()).forEach(p => { parts[p.type] = p.value; });
+  const y = +parts.year, m = +parts.month, d = +parts.day;
+  const hour = (+parts.hour) % 24;
+  return {
+    y, m, d,
+    dow: new Date(Date.UTC(y, m - 1, d)).getUTCDay(),
+    minutes: hour * 60 + (+parts.minute)
+  };
+}
+
+function ymdKey(dateUtc) {
+  const y = dateUtc.getUTCFullYear();
+  const m = String(dateUtc.getUTCMonth() + 1).padStart(2, '0');
+  const d = String(dateUtc.getUTCDate()).padStart(2, '0');
+  return `${y}-${m}-${d}`;
+}
+
 function getWeekStart(weekOffset = 0) {
-  const today = new Date();
-
-  const sunday = new Date(today);
-  sunday.setDate(today.getDate() - today.getDay() + weekOffset * 7);
-
-  const year = sunday.getFullYear();
-  const month = String(sunday.getMonth() + 1).padStart(2, '0');
-  const day = String(sunday.getDate()).padStart(2, '0');
-
-  return `${year}-${month}-${day}`;
+  const now = nyNow();
+  const sunday = new Date(Date.UTC(now.y, now.m - 1, now.d - now.dow + weekOffset * 7));
+  return ymdKey(sunday);
 }
 
 // ---- Time / active-location helpers ----
@@ -82,8 +104,7 @@ function parseHoursRange(hoursStr) {
 }
 
 function getNowMinutes() {
-  const now = new Date();
-  return now.getHours() * 60 + now.getMinutes();
+  return nyNow().minutes;
 }
 
 function isWithinRange(nowMin, start, end) {
@@ -149,22 +170,116 @@ function getActiveLocation(stop) {
   return lastLoc;
 }
 
-function updateTodayCard(){
-  const todayIndex = new Date().getDay();
-  const todayStop = schedule[todayIndex];
+// ---- Today's stop card at the top of the page ----
 
-  if (!todayStop || todayStop.closed){
-    todayStopName.textContent = 'No Service Today';
-    todayAddress.textContent = '';
-    todayHours.textContent = 'Closed';
+const DOW_SHORT = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const MON_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+function shortHours(hours) {
+  // "9:00 AM – 1:00 PM" -> "9 AM – 1 PM"
+  return String(hours || '').replace(/:00(?=\s*[AP]M)/gi, '');
+}
+
+function directionsUrl(address) {
+  return 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(address);
+}
+
+function stopsOfDay(day) {
+  // All open stops for one schedule day, sorted by start time
+  if (!day || day.closed || !day.name) return [];
+  const list = [{ name: day.name, address: day.address, hours: day.hours }];
+  const second = day.secondLocation || day['second location'];
+  if (second && second.name) list.push({ name: second.name, address: second.address, hours: second.hours });
+  return list.sort((a, b) => (parseHoursRange(a.hours).start || 0) - (parseHoursRange(b.hours).start || 0));
+}
+
+function findStopToShow() {
+  // Today: the stop serving now, or the next one later today.
+  // When today is done (or closed), the next day with a stop.
+  if (!scheduleData || !scheduleData.weeks) return null;
+  const now = nyNow();
+
+  for (let offset = 0; offset < 28; offset++) {
+    const date = new Date(Date.UTC(now.y, now.m - 1, now.d + offset));
+    const dow = date.getUTCDay();
+    const sunday = new Date(Date.UTC(now.y, now.m - 1, now.d + offset - dow));
+    const week = scheduleData.weeks[ymdKey(sunday)];
+    const stops = stopsOfDay(week && week[dow]);
+    if (!stops.length) continue;
+
+    if (offset === 0) {
+      const open = stops.filter(s => {
+        const r = parseHoursRange(s.hours);
+        return r.end === null || now.minutes < r.end;
+      });
+      if (!open.length) continue;
+      const current = open.find(s => {
+        const r = parseHoursRange(s.hours);
+        return isWithinRange(now.minutes, r.start, r.end);
+      });
+      const show = current || open[0];
+      const later = open.filter(s => s !== show);
+      return { stop: show, later, isToday: true, serving: !!current, dow, date };
+    }
+
+    return { stop: stops[0], later: stops.slice(1), isToday: false, serving: false, dow, date };
+  }
+  return null;
+}
+
+function updateTodayCard(){
+  const label = document.getElementById('todayLabel');
+  const addrLink = document.getElementById('todayAddressLink');
+  const laterEl = document.getElementById('todayLater');
+  const satEl = document.getElementById('todaySatNote');
+  const orderNote = document.getElementById('todayOrderNote');
+  const found = findStopToShow();
+
+  if (!found) {
+    if (label) label.textContent = 'Where to find us';
+    todayStopName.textContent = 'Find us on StreetFoodFinder';
+    todayAddress.textContent = 'streetfoodfinder.com/CoastalCreperie';
+    if (addrLink) addrLink.href = SFF_URL;
+    todayHours.textContent = '';
+    if (laterEl) laterEl.hidden = true;
+    if (satEl) satEl.hidden = true;
+    if (orderNote) orderNote.textContent = 'Order ahead for pickup at our stop';
     return;
   }
 
-  const active = getActiveLocation(todayStop);
+  const { stop, later, isToday, serving, dow, date } = found;
 
-  todayStopName.textContent = active.name;
-  todayAddress.textContent = active.address;
-  todayHours.textContent = active.hours;
+  if (label) {
+    label.textContent = isToday
+      ? (serving ? 'Today\u2019s stop \u00b7 Open now' : 'Today\u2019s stop')
+      : `Next stop \u00b7 ${DOW_SHORT[dow]}, ${MON_SHORT[date.getUTCMonth()]} ${date.getUTCDate()}`;
+  }
+
+  todayStopName.textContent = stop.name;
+  todayAddress.textContent = stop.address;
+  if (addrLink) {
+    addrLink.href = directionsUrl(stop.address);
+    addrLink.setAttribute('aria-label', `Directions to ${stop.name}, ${stop.address}`);
+  }
+  todayHours.textContent = shortHours(stop.hours);
+
+  if (laterEl) {
+    if (later.length) {
+      laterEl.textContent = (isToday ? 'Later today: ' : 'Later that day: ') +
+        later.map(s => `${s.name}, ${shortHours(s.hours)}`).join(' \u00b7 ');
+      laterEl.hidden = false;
+    } else {
+      laterEl.hidden = true;
+    }
+  }
+
+  if (satEl) satEl.hidden = dow !== 6;
+
+  if (orderNote) {
+    orderNote.textContent = isToday
+      ? 'Order ahead for pickup at today\u2019s stop'
+      : 'Order ahead opens on the day of the stop';
+  }
 }
 
 function loadCurrentWeek() {
@@ -177,13 +292,7 @@ function loadCurrentWeek() {
 
   setupWeekTabs();
 
-  if (!schedule) {
-    todayStopName.textContent = 'Find us on StreetFoodFinder';
-    todayAddress.textContent = 'streetfoodfinder.com/CoastalCreperie';
-    todayHours.textContent = '';
-  } else {
-    updateTodayCard();
-  }
+  updateTodayCard();
 
   showWeek(false);
 }
@@ -223,7 +332,7 @@ function showWeek(next) {
   }
 
   // Highlight today only on the current week; next week starts on Sunday
-  selectedIndex = viewingNext ? 0 : new Date().getDay();
+  selectedIndex = viewingNext ? 0 : nyNow().dow;
 
   renderDayStrip();
   updatePanel();
@@ -319,7 +428,7 @@ function renderTwoStops(stop, secondStop) {
   ].sort((a, b) => parseHoursRange(a.hours).start - parseHoursRange(b.hours).start);
 
   // Only today (on the current week) gets "Now serving" / "Up next"
-  const isToday = !viewingNext && selectedIndex === new Date().getDay();
+  const isToday = !viewingNext && selectedIndex === nyNow().dow;
   let highlight = -1;
   let status = '';
 
@@ -419,10 +528,10 @@ loadSchedule();
 // Re-check every minute so a stop with a second location swaps over
 // automatically, without needing a page reload.
 setInterval(() => {
-  if (!schedule || !schedule.length) return;
+  if (!scheduleData) return;
 
   updateTodayCard();
-  if (!viewingNext) updatePanel();
+  if (!viewingNext && schedule && schedule.length) updatePanel();
 }, 60 * 1000);
 
 

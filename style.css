@@ -263,6 +263,31 @@
     gap:7px;
 }
 
+  .today__meta > a.today__address{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    color:#fff;
+    text-decoration:underline;
+    text-decoration-color:rgba(212,165,72,.8);
+    text-underline-offset:3px;
+  }
+  .today__meta > a.today__address:hover{
+    color:var(--gold);
+  }
+  .today__later{
+    margin-top:12px;
+    font-size:.8rem;
+    line-height:1.45;
+    color:#dcd9d0;
+  }
+  .order__sat{
+    margin-top:4px;
+    font-size:.8rem;
+    font-weight:600;
+    color:var(--navy-deep);
+  }
+
   /* ---------- ORDER AHEAD ---------- */
   .order__btn{
     display:inline-flex;
@@ -439,6 +464,11 @@
     nav{display:none;}
     .main{min-height:auto;}
     .main__content{padding:48px 22px;}
+    /* Phones and tablets: today's stop and Order ahead come first */
+    .main{align-items:flex-start;}
+    .main__content{display:flex;flex-direction:column;padding-top:20px;}
+    .hero__today{order:-1;margin-bottom:30px;}
+    .hero__order{margin-top:14px;}
     .main__title{font-size:4.5rem;}
     .schedule{padding:60px 22px 70px;}
     .day__strip{grid-template-columns:repeat(4,1fr);min-height:250px;}
@@ -453,6 +483,9 @@
     .logo{
       width: 70px;
     }
+    .today__card{padding:16px 18px;}
+    .card__title{font-size:1.3rem;margin-bottom:8px;line-height:1.25;}
+    .today__meta{gap:8px 18px;font-size:.85rem;}
     
   }
 
