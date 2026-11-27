@@ -260,10 +260,7 @@
         "dow": "FRI",
         "date": 4,
         "mon": "Dec",
-        "name": "Oak Creek Charter School of Bonita Springs",
-        "address": "28011 Performance Lane, Bonita Springs",
-        "hours": "10:00 AM – 2:00 PM",
-        "note": "Crepes and Coffee at Oak Creek Charter School of Bonita Springs"
+        "closed": true
       },
       {
         "dow": "SAT",
